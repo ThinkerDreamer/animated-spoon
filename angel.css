@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    background: #555;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 17px;
+}
+
+header {
+    background: #119822;
+    width: 750px;
+    margin: 0 auto;
+    padding: 100px 50px 30px;
+}
+
+.slava-ukraini {
+    background: linear-gradient(180deg, #005bbc 50%, #ffd600 50%);
+    padding: 50px;
+    margin-top: 100px;
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.white-bkgnd {
+    background: rgba(255, 255, 255, 0.75);
+    color: #1f1d40;
+    padding: 15px;
+}
+
+.called-out {
+    font-size: 20px;
+    font-style: oblique;
+    margin-left: 1.5em;
+}
+
+.interests {
+    width: 750px;
+    margin: 100px auto 50px;
+    background-image: url("img/rainbow.jpg");
+    background-size: cover;
+    padding: 50px;
+    font-weight: 500;
+    color: #343434;
+}
