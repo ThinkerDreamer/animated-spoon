@@ -8,8 +8,10 @@
             <h1>Metric / Imperial Unit Conversions</h1>
             <p id="base-num">20</p>
             <div class="input-area">
-                <input type="number" id="num-input" name="num-input" onKeyPress="numInputKeyPress()" onKeyUp="numInputKeyPress()">
-                <label for="num-input">Enter a number to convert</label>
+                <div class="form__group">
+                    <input type="input" class="form__field" id="num-input" name="num-input" onKeyPress="numInputKeyPress()" onKeyUp="numInputKeyPress()">
+                    <label for="num-input" class="form__label">Enter a number to convert</label>
+                </div>
             </div>
         </header>
         <main class="results">

@@ -74,7 +74,9 @@ main {
 
 .input-area {
     text-align: center;
-    padding-bottom: 10px;
+    padding: 10px 30px 30px;
+    margin: 0 auto;
+    background: #1F2937;
 }
 input {
     display: block;
@@ -85,4 +87,62 @@ input {
 label {
     text-align: center;
     padding-top: 10px;
+}
+
+/* Beautiful form */
+
+.form__group {
+    position: relative;
+    padding: 20px 0 10px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+.form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.3rem;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+.form__field::placeholder {
+    color: transparent;
+}
+.form__field:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+}
+.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #9b9b9b;
+}
+.form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    border-image-slice: 1;
+}
+.form__field:focus ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #11998e;
+    font-weight: 700;
+}
+/* reset input */
+.form__field:required, .form__field:invalid {
+    box-shadow: none;
 }
