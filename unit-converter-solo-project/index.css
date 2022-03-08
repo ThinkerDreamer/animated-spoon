@@ -1,0 +1,88 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 0;
+    max-width: 500px;
+    margin: 0 auto;
+    font-family: sans-serif;
+    background: #000;
+}
+
+/* background */
+header {
+    background: linear-gradient(
+        45deg,
+        hsl(331deg 100% 53%) 0%,
+        hsl(348deg 100% 62%) 10%,
+        hsl(12deg 100% 64%) 20%,
+        hsl(32deg 100% 58%) 30%,
+        hsl(46deg 100% 50%) 40%,
+        hsl(55deg 100% 50%) 50%,
+        hsl(74deg 91% 62%) 60%,
+        hsl(104deg 98% 73%) 70%,
+        hsl(144deg 100% 71%) 80%,
+        hsl(166deg 100% 60%) 90%,
+        hsl(177deg 100% 50%) 100%
+        );
+        overflow: hidden;
+        margin-top: 20px;
+        margin-bottom: 0;
+        padding: 0;
+        -webkit-border-top-left-radius: 12px;
+        -webkit-border-top-right-radius: 12px;
+        -moz-border-radius-topleft: 12px;
+        -moz-border-radius-topright: 12px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+}
+
+h1 {
+    color: #353535;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 0;
+    margin-top: 0;
+}
+
+#base-num {
+    font-weight: 800;
+    font-size: 100px;
+    text-align: center;
+    color: #353535;
+    padding-bottom: 20px;
+    padding-top: 0;
+    margin: 0 auto;
+}
+
+main {
+    background: #1F2937;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto 20px;
+    padding-top: 0;
+    padding: 20px;
+    -webkit-border-bottom-left-radius: 12px;
+    -webkit-border-bottom-right-radius: 12px;
+    -moz-border-radius-bottomleft: 12px;
+    -moz-border-radius-bottomright: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.input-area {
+    text-align: center;
+    padding-bottom: 10px;
+}
+input {
+    display: block;
+    margin: 0 auto 10px;
+    text-align: center;
+    width: 50px;
+}
+label {
+    text-align: center;
+    padding-top: 10px;
+}

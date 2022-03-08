@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <header>
+            <h1>Metric / Imperial Unit Conversions</h1>
+            <p id="base-num">20</p>
+            <div class="input-area">
+                <input type="number" id="num-input" name="num-input" onKeyPress="numInputKeyPress()" onKeyUp="numInputKeyPress()">
+                <label for="num-input">Enter a number to convert</label>
+            </div>
+        </header>
+        <main class="results">
+            <h3>Length (Meters/Feet)</h3>
+            <p id="len-results"></p>
+            <h3>Volume (Liters/Gallons)</h3>
+            <p id="vol-results"></p>
+            <h3>Mass (Kilograms/Pounds)</h3>
+            <p id="mass-results"></p>
+        </main>
+        <script src="index.js"></script>
+    </body>
+</html>
