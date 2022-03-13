@@ -1,5 +1,8 @@
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
+    background-image: url("engin-akyurt-HEMIBJ8QQuA-unsplash.jpg");
+/*             filter: blur(8px);
+            -webkit-filter: blur(8px); */
     background-size: cover;
     font-weight: bold;
     color: white;
