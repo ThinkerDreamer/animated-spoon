@@ -13,26 +13,50 @@ let cards = []
 let sum = 0
 let message = ""
 let messageEl = document.querySelector("#message-el");
+let message2El = document.querySelector("#message2-el");
 let sumEl = document.querySelector("#sum-el");
 let cardsEl = document.querySelector("#cards-el");
 let playerEl = document.querySelector("#player-el");
+let startGameButton = document.querySelector("#start-game-btn");
 let newCardButton = document.querySelector("#new-card-btn");
 let stayButton = document.querySelector("#stay-btn");
+let bettingEls = document.querySelector(".betting-els");
 let betSlider = document.querySelector("#bet-slider");
 let betEl = document.querySelector("#bet-el");
 
+let numOfRenders = 0;
+
 playerEl.textContent = player.name + ": $" + player.chips
-stayButton.style.visibility = "hidden";
-newCardButton.style.visibility = "hidden";
+console.log("Setting buttons to display:none");
+stayButton.style.display = "none";
+newCardButton.style.diplay = "none";
+console.log("Done setting buttons to display:none");
 betSlider.setAttribute("min", 5);
 betSlider.setAttribute("max", player.chips);
-betSlider.setAttribute("value", player.chips/4);
+betSlider.setAttribute("value", player.chips/8);
 betSlider.setAttribute("step", 5);
-betEl.textContent = "Default bet: $" + player.chips/4
+betEl.textContent = "Default bet: $" + player.chips/8
 
 betSlider.oninput = function() {
     betEl.textContent = "Current bet: $" + this.value;
   }
+
+function hideSlider() {
+    message2El.style.visibility = "hidden";
+    message2El.style.height = 0;
+    betSlider.style.visibility = "hidden";
+    betSlider.style.height = 0;
+    bettingEls.style.height = "50px";
+}
+
+function displaySlider() {
+    message2El.style.visibility = "visible";
+    message2El.style.height = "auto";
+    betSlider.style.visibility = "visible";
+    betSlider.style.height = "auto";
+    bettingEls.style.height = "auto";
+}
+
 
 function getRandomCard() {
     let randomNumber = Math.floor( Math.random()*13 ) + 1
@@ -59,9 +83,14 @@ function startGame() {
         alert("Getting more chips...");
         player.chips += 200;
     }
-    stayButton.style.visibility = "visible";
-    newCardButton.style.visibility = "visible";
-    betSlider.setAttribute("disabled", "");
+    if (window.matchMedia("(min-width: 500px)").matches) {
+        stayButton.style.display = "block";
+        newCardButton.style.display = "block";
+    } else if (window.matchMedia("(max-width: 499px)").matches) {
+        stayButton.style.display = "inline";
+        newCardButton.style.display = "inline";
+    }
+    hideSlider();
     renderGame();
     gameCalculation();
 }
@@ -70,16 +99,25 @@ function playerWins() {
     player.chips += (player.currentBet * 2);
     playerEl.textContent = player.name + ": $" + player.chips;
     player.isAlive = false;
+    startGameButton.textContent = "NEW GAME";
+    betSlider.setAttribute("max", player.chips);
+    displaySlider();
 }
 
 function dealerWins() {
     player.isAlive = false;
+    startGameButton.textContent = "NEW GAME";
+    betSlider.setAttribute("max", player.chips);
+    displaySlider();
 }
 
 function itsADraw() {
     player.chips += (player.currentBet * 1);
     playerEl.textContent = player.name + ": $" + player.chips;
     player.isAlive = false;
+    startGameButton.textContent = "NEW GAME";
+    betSlider.setAttribute("max", player.chips);
+    displaySlider();
 }
 
 function gameCalculation() {
@@ -117,7 +155,9 @@ function gameCalculation() {
 }
 
 function renderGame() {
-    betSlider.setAttribute("max", player.chips);
+    numOfRenders++;
+    console.log("Rendering game..." + numOfRenders +" times so far")
+    
     cardsEl.textContent = "Cards: "
     for (let i = 0; i < cards.length; i++) {
         cardsEl.textContent += cards[i] + " "
@@ -125,9 +165,9 @@ function renderGame() {
     sumEl.textContent = "Sum: " + sum
     playerEl.textContent = player.name + ": $" + player.chips
     if (!player.isAlive || player.hasBlackJack) {
-        stayButton.style.visibility = "hidden";
-        newCardButton.style.visibility = "hidden";
-        betSlider.disabled = false;
+        stayButton.style.display = "none";
+        newCardButton.style.display = "none";
+
     }
 }
 function dealerPlay() {

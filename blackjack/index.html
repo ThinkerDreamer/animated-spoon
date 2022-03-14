@@ -7,17 +7,28 @@
     <body>
         
         <h1>Blackjack</h1>
-        <p id="message-el">Want to play a round?</p>
-        <p id="bet-el">Current bet: $</p>
-        <input type="range" id="bet-slider">
-        <p id="cards-el">Cards:</p>
-        <p id="sum-el">Sum:</p>
-        <div class="buttons">
-            <button onclick="startGame()">START GAME</button>
-            <button id="new-card-btn" onclick="newCard()">NEW CARD</button>
-            <button id="stay-btn" onclick="stay()">STAY</button>
+        <div class="game-els">
+            <p id="message-el">Want to play a round?</p>
+
+            <div class="betting-els">
+                <p id="message2-el" class="small-text">Choose your bet</p>
+                <p id="bet-el" class="small-text">Default bet: $25</p>
+                <input type="range" id="bet-slider">
+            </div>
+
+            <p id="cards-el">Cards:</p>
+            <p id="sum-el">Sum:</p>
+
+            <div class="buttons">
+                <button id="start-game-btn" onclick="startGame()">START GAME</button>
+                <button id="new-card-btn" onclick="newCard()" style="display: none;">NEW CARD</button>
+                <button id="stay-btn" onclick="stay()">STAY</button>
+            </div>
+
+            <p id="player-el"></p>
         </div>
-        <p id="player-el"></p>
         <script src="index.js"></script>
+        <script src="outline.js"></script>
+        
     </body>
 </html>
