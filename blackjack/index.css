@@ -54,7 +54,7 @@ button {
 }
 
 #bet-slider {
-    width: 33%;
+    width: 50%;
     height: 15px;
     background: #d3d3d3;
     outline: none;
@@ -77,13 +77,6 @@ button {
     background: #04AA6D;
     cursor: pointer;
     }
-#bet-slider::-webkit-slider-thumb:disabled {
-    background: #d3d3d3;
-
-}
-#bet-slider::-moz-range-thumb:disabled {
-    background: #d3d3d3;
-}
 
     /* If the screen size is 601px or more, set the font-size of <div> to 80px */
     @media only screen and (min-width: 601px) {
