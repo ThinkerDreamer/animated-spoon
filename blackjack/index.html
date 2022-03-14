@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="index.css">
@@ -6,11 +7,15 @@
         
         <h1>Blackjack</h1>
         <p id="message-el">Want to play a round?</p>
+        <input type="range" id="bet-slider">
+        <p id="bet-el">Current bet: $</p>
         <p id="cards-el">Cards:</p>
         <p id="sum-el">Sum:</p>
-        <button onclick="startGame()">START GAME</button>
-        <button onclick="newCard()">NEW CARD</button>
-        <button id="stay-btn" onclick="stay()">STAY</button>
+        <div class="buttons">
+            <button onclick="startGame()">START GAME</button>
+            <button id="new-card-btn" onclick="newCard()">NEW CARD</button>
+            <button id="stay-btn" onclick="stay()">STAY</button>
+        </div>
         <p id="player-el"></p>
         <script src="index.js"></script>
     </body>

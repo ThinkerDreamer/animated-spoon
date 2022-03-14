@@ -17,15 +17,39 @@ h1 {
     font-style: italic;
 }
 
+buttons {
+    display: flex;
+}
+
 button {
     color: #016f32;
-    width: 150px;
+    width: max-content;
     background: goldenrod;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 16px;
     font-weight: bold;
     border: none;
     border-radius: 2px;
     margin-bottom: 2px;
     margin-top: 2px;
 }
+
+/* If the screen size is 601px or more, set the font-size of <div> to 80px */
+@media only screen and (min-width: 601px) {
+    body {
+      font-size: 50px;
+    }
+    button {
+        font-size: 50px;
+    }
+  }
+  
+  /* If the screen size is 600px or less, set the font-size of <div> to 30px */
+  @media only screen and (max-width: 600px) {
+    body {
+      font-size: 30px;
+    }
+    button {
+        font-size: 30px;
+        width: 33%;
+    }
+  }
