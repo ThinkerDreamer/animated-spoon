@@ -137,20 +137,20 @@ function gameCalculation() {
         let dealerSum = dealerPlay();
         console.log("dealerScore is: " + dealerSum);
         if (dealerSum <= 21 && sum < dealerSum) {
-            message= "Dealer got " + dealerSum + ". You lose! Play again?";
+            message= "Dealer got " + dealerSum + ".<br>You lose! Play again?";
             dealerWins();
         } else if (dealerSum > 21) {
-            message = "Dealer busted with " + dealerSum + "! You win! Play again?";
+            message = "Dealer busted with " + dealerSum + "!<br>You win! Play again?";
             playerWins();
         } else if (sum > dealerSum) {
-            message = "You win! Dealer got " + dealerSum +". Play again?"
+            message = "You win! Dealer got " + dealerSum +".<br>Play again?"
             playerWins();
         } else if (sum === dealerSum) {
-            message = "It's a draw! Dealer got " + dealerSum +". Play again?"
+            message = "It's a draw! Dealer got " + dealerSum +".<br>Play again?"
             itsADraw();
         }
     }
-    messageEl.textContent = message;
+    messageEl.innerHTML = message;
     renderGame();
 }
 
