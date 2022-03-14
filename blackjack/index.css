@@ -22,6 +22,7 @@ buttons {
 }
 
 button {
+    display: block;
     color: #016f32;
     width: max-content;
     background: goldenrod;
@@ -29,24 +30,54 @@ button {
     font-weight: bold;
     border: none;
     border-radius: 2px;
-    margin-bottom: 2px;
-    margin-top: 2px;
+    margin: 2px auto;
 }
 
-/* If the screen size is 601px or more, set the font-size of <div> to 80px */
-@media only screen and (min-width: 601px) {
+#bet-slider {
+    width: 25%;
+    height: 15px;
+    background: #d3d3d3;
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    }
+    
+#bet-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
+    }
+    
+#bet-slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
+    }
+#bet-slider::-webkit-slider-thumb:disabled {
+    background: #d3d3d3;
+
+}
+#bet-slider::-moz-range-thumb:disabled {
+    background: #d3d3d3;
+}
+
+    /* If the screen size is 601px or more, set the font-size of <div> to 80px */
+    @media only screen and (min-width: 601px) {
     body {
-      font-size: 50px;
+        font-size: 50px;
     }
     button {
         font-size: 50px;
     }
-  }
-  
-  /* If the screen size is 600px or less, set the font-size of <div> to 30px */
-  @media only screen and (max-width: 600px) {
+    }
+
+    /* If the screen size is 600px or less, set the font-size of <div> to 30px */
+    @media only screen and (max-width: 600px) {
     body {
-      font-size: 30px;
+        font-size: 30px;
     }
     button {
         font-size: 30px;

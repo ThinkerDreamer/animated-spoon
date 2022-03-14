@@ -21,13 +21,14 @@ let stayButton = document.querySelector("#stay-btn");
 let betSlider = document.querySelector("#bet-slider");
 let betEl = document.querySelector("#bet-el");
 
-
+playerEl.textContent = player.name + ": $" + player.chips
 stayButton.style.visibility = "hidden";
+newCardButton.style.visibility = "hidden";
 betSlider.setAttribute("min", 5);
 betSlider.setAttribute("max", player.chips);
-betSlider.setAttribute("value",40);
+betSlider.setAttribute("value", player.chips/4);
 betSlider.setAttribute("step", 5);
-betEl.textContent = "Default bet: $40"
+betEl.textContent = "Default bet: $" + player.chips/4
 
 betSlider.oninput = function() {
     betEl.textContent = "Current bet: $" + this.value;
@@ -54,59 +55,65 @@ function startGame() {
     sum = firstCard + secondCard;
     player.currentBet = betSlider.value;
     player.chips -= player.currentBet;
-    if (player.chips <= 0) {
+    if (player.chips < 0) {
         alert("Getting more chips...");
-        player.chips = 200;
+        player.chips += 200;
     }
     stayButton.style.visibility = "visible";
     newCardButton.style.visibility = "visible";
+    betSlider.setAttribute("disabled", "");
     renderGame();
     gameCalculation();
 }
 
+function playerWins() {
+    player.chips += (player.currentBet * 2);
+    playerEl.textContent = player.name + ": $" + player.chips;
+    player.isAlive = false;
+}
+
+function dealerWins() {
+    player.isAlive = false;
+}
+
+function itsADraw() {
+    player.chips += (player.currentBet * 1);
+    playerEl.textContent = player.name + ": $" + player.chips;
+    player.isAlive = false;
+}
+
 function gameCalculation() {
-    renderGame()
+    renderGame();
     if (sum <= 20 && !player.isStaying) {
-        message = "Do you want to draw a new card?"
+        message = "Do you want to draw a new card?";
     } else if (sum === 21) {
-        message = "Blackjack! Play again?"
+        message = "Blackjack! Play again?";
         player.hasBlackJack = true;
-        player.chips += (player.currentBet * 2);
-        stayButton.style.visibility = "hidden";
-        newCardButton.style.visibility = "hidden";
+        playerWins();
     } else if (sum > 21) {
-        message = "You busted! Play again?"
-        player.isAlive = false;
-        stayButton.style.visibility = "hidden";
-        newCardButton.style.visibility = "hidden";
+        message = "You busted! Play again?";
+        dealerWins();
+
     } else if (player.isStaying) {
+        renderGame();
         let dealerSum = dealerPlay();
         console.log("dealerScore is: " + dealerSum);
         if (dealerSum <= 21 && sum < dealerSum) {
-            message= "Dealer got " + dealerSum + ". You lose! Play again?"
-            stayButton.style.visibility = "hidden";
-            newCardButton.style.visibility = "hidden";
+            message= "Dealer got " + dealerSum + ". You lose! Play again?";
+            dealerWins();
         } else if (dealerSum > 21) {
-            message = "Dealer busted with " + dealerSum + "! You win! Play again?"
-            player.chips += (player.currentBet * 2);
-            playerEl.textContent = player.name + ": $" + player.chips
-            stayButton.style.visibility = "hidden";
-            newCardButton.style.visibility = "hidden";
+            message = "Dealer busted with " + dealerSum + "! You win! Play again?";
+            playerWins();
         } else if (sum > dealerSum) {
             message = "You win! Dealer got " + dealerSum +". Play again?"
-            player.chips += (player.currentBet * 2);
-            playerEl.textContent = player.name + ": $" + player.chips
-            stayButton.style.visibility = "hidden";
-            newCardButton.style.visibility = "hidden";
+            playerWins();
         } else if (sum === dealerSum) {
             message = "It's a draw! Dealer got " + dealerSum +". Play again?"
-            player.chips += (player.currentBet * 1);
-            playerEl.textContent = player.name + ": $" + player.chips
-            stayButton.style.visibility = "hidden";
-            newCardButton.style.visibility = "hidden";
+            itsADraw();
         }
     }
-    messageEl.textContent = message
+    messageEl.textContent = message;
+    renderGame();
 }
 
 function renderGame() {
@@ -117,6 +124,11 @@ function renderGame() {
     }
     sumEl.textContent = "Sum: " + sum
     playerEl.textContent = player.name + ": $" + player.chips
+    if (!player.isAlive || player.hasBlackJack) {
+        stayButton.style.visibility = "hidden";
+        newCardButton.style.visibility = "hidden";
+        betSlider.disabled = false;
+    }
 }
 function dealerPlay() {
     let dealerCard1 = getRandomCard();
