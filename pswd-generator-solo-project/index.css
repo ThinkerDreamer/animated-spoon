@@ -4,15 +4,24 @@ html, body {
 }
 
 body {
-    background: #273549;
+    background: #361807;
     color: white;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
+.content {
+    background-color: #3C153B;
+    padding: 100px;
+    margin-top: 100px;
+}
 h1 {
     margin: 10px auto;
+    font-size: 350%;
 }
 
 .colored-text {
+    display: block;
     color: #F59E0B;
 }
 
