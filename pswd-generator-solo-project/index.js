@@ -21,7 +21,7 @@ let pw4El = document.querySelector("#pw4-el");
 
 // Function to clear passwords each refresh
 window.onload = function() {
-    let passwordEls = document.querySelectorAll(".passwords");
+    let passwordEls = document.querySelectorAll(".password");
     passwordEls.forEach(function(el) {
         el.value = "";
       });

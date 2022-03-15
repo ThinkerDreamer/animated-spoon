@@ -4,20 +4,26 @@ html, body {
 }
 
 body {
-    background: #361807;
-    color: white;
+    /*background: #361807;*/
+    background-color: #241005;
+    color: #c8bfd9;
     max-width: 700px;
     margin: 0 auto;
 }
 
 .content {
-    background-color: #3C153B;
-    padding: 100px;
+    /* background-color: #3C153B; */
+    background-color: #4B1B49;
+    padding: 75px;
     margin-top: 100px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(66, 35, 0, 0.5);
 }
 h1 {
     margin: 10px auto;
     font-size: 350%;
+    font-family: 'Karla', sans-serif;
+    font-weight: 800;
 }
 
 .colored-text {
@@ -26,7 +32,8 @@ h1 {
 }
 
 p {
-    margin: 5px auto;
+    margin: 5px auto 75px;
+    font-family: 'Inter', sans-serif;
 }
 
 button {
@@ -34,8 +41,33 @@ button {
     color:#273549;
     border: none;
     padding: 10px;
+    font-size: 16px;
+    line-height: 24px;
 }
 
-.passwords {
+button::before {
+    content: "⚡ ";
+  }
 
+.input-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    justify-content: space-between;
+}
+
+.password {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 125%;
+}
+
+#pw1-el, #pw3-el {
+    margin-left: 0;
+    margin-right: 12px;
+}
+
+#pw2-el, #pw4-el {
+    margin-left: 12px;
+    margin-right: 0;
 }

@@ -2,6 +2,10 @@
 <html>
     <head>
         <link rel="stylesheet" href="index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter&family=Karla:wght@800&display=swap" rel="stylesheet"> 
+        <script src="https://kit.fontawesome.com/26456b3d35.js" crossorigin="anonymous"></script>
         <title>Password Generator</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -14,10 +18,12 @@
             <main>
                 <button onclick="generatePswds()">Generate passwords</button>
                 <hr>
-                <input type="text" id="pw1-el" class="passwords">
-                <input type="text" id="pw2-el" class="passwords">
-                <input type="text" id="pw3-el" class="passwords">
-                <input type="text" id="pw4-el" class="passwords">
+                <div class="input-container">
+                    <input type="text" id="pw1-el" class="password">
+                    <input type="text" id="pw2-el" class="password">
+                    <input type="text" id="pw3-el" class="password">
+                    <input type="text" id="pw4-el" class="password">
+                </div>
             </main>
         </div>
         <script src="index.js"></script>
