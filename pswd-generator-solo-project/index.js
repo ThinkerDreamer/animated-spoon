@@ -12,3 +12,39 @@ addCharToArr(lowerCaseLetters);
 addCharToArr(upperCaseLetters);
 addCharToArr(numbersZeroToNine);
 addCharToArr(selectedSpecialCharacters);
+
+let pw1El = document.querySelector("#pw1-el");
+let pw2El = document.querySelector("#pw2-el");
+let pw3El = document.querySelector("#pw3-el");
+let pw4El = document.querySelector("#pw4-el");
+
+
+// Function to clear passwords each refresh
+window.onload = function() {
+    let passwordEls = document.querySelectorAll(".passwords");
+    passwordEls.forEach(function(el) {
+        el.value = "";
+      });
+    }
+
+// Generates one password
+function genPswd() {
+    /*todo: conditional logic for selecting
+    a subset of characters to use*/
+    let password = [];
+    while (password.length < 18) {
+        let randomIndex = Math.floor(Math.random() * allCharacters.length);
+        password.push(allCharacters[randomIndex]);
+    }
+    console.log("Generating one password");
+    return password.join("");
+}
+
+// Populates input fields with generated passwords
+function generatePswds() {
+    pw1El.value = genPswd();
+    pw2El.value = genPswd();
+    pw3El.value = genPswd();
+    pw4El.value = genPswd(); 
+    console.log("All 4 passwords generated.");
+}
