@@ -2,3 +2,31 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
+body {
+    background: #273549;
+    color: white;
+}
+
+h1 {
+    margin: 10px auto;
+}
+
+.colored-text {
+    color: #F59E0B;
+}
+
+p {
+    margin: 5px auto;
+}
+
+button {
+    background-color: #F59E0B;
+    color:#273549;
+    border: none;
+    padding: 10px;
+}
+
+.passwords {
+
+}
