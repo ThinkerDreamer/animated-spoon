@@ -56,6 +56,10 @@ button {
     border-radius: 5px;
 }
 
+hr {
+    border-top: 1px solid #c8bfd9;
+}
+
 .input-container {
     display: grid;
     grid-template-columns: 50% 50%;
