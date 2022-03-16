@@ -28,7 +28,7 @@ header {
     box-shadow: 0 3px 10px rgba(66, 35, 0, 0.5);
 }
 h1 {
-    margin: 10px auto;
+    margin: 10px auto 15px;
     font-size: 50px;
     font-family: 'Karla', sans-serif;
     font-weight: 800;
