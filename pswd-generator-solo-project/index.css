@@ -54,11 +54,10 @@ button {
     font-size: 16px;
     line-height: 24px;
     border-radius: 5px;
-    display: flex;
 }
 
 hr {
-    border-top: 1px solid #c8bfd9;
+    border-top: 1px dotted #c8bfd9;
 }
 
 .input-container {
