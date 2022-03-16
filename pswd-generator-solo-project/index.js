@@ -23,7 +23,7 @@ let pw4El = document.querySelector("#pw4-el");
 window.onload = function() {
     let passwordEls = document.querySelectorAll(".password");
     passwordEls.forEach(function(el) {
-        el.value = "";
+        el.value = "...";
       });
     }
 
@@ -48,3 +48,18 @@ function generatePswds() {
     pw4El.value = genPswd(); 
     console.log("All 4 passwords generated.");
 }
+
+function copy(pswdEl) {
+    /* Select the text field */
+    console.log("input was clicked");
+    pswdEl.select();
+    pswdEl.setSelectionRange(0, 99999); /* For mobile devices */
+
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(pswdEl.value);
+    console.log("copied the text(?)");
+
+    /* Alert the copied text */
+    alert("Copied the text: " + pswdEl.value);
+}
+  
