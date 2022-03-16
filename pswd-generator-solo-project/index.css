@@ -21,15 +21,15 @@ header {
     /* background-color: #3C153B; */
     background-color: #4B1B49;
     padding: 75px;
-    margin-top: 100px;
+    margin: 100px auto;
     padding-left: 52px;
     padding-top: 118px;
     border-radius: 5px;
     box-shadow: 0 3px 10px rgba(66, 35, 0, 0.5);
 }
 h1 {
-    margin: 10px auto;
-    font-size: 40px;
+    margin: 10px auto 30px;
+    font-size: 50px;
     font-family: 'Karla', sans-serif;
     font-weight: 800;
 }
@@ -57,7 +57,7 @@ button {
 }
 
 hr {
-    border-top: 1px solid #c8bfd9;
+    border-top: 1px dotted #c8bfd9;
 }
 
 .input-container {
