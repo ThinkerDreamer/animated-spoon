@@ -73,7 +73,7 @@ hr {
     font-size: 125%;
     line-height: 200%;
     text-align: center;
-    color: #c8bfd9;
+    color: #c8bfd9 !important;
 }
 
 input {
