@@ -1,0 +1,99 @@
+* {
+    --my-background-color: #BAACBD;
+    --my-header: #D90368;
+    --my-main-text: #ccffcc;
+    --my-main-background: #820263;
+}
+
+/* Page reset */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Button Reset */
+button {
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background: var(--my-header);
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+button:hover,
+button:focus {
+    background: var(--my-header);
+}
+button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+button:active {
+    transform: scale(0.99);
+}
+
+/* Main styles */
+body {
+    background: var(--my-background-color);
+    color:var(--my-main-text);
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+header {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    background: var(--my-header);
+    color: var(--my-main-text);
+    padding: 50px 0;
+    margin-top: 25px;
+}
+
+.callout-text {
+    font-style: italic;
+}
+
+h1 {
+    font-family: 'Lobster Two', cursive;
+    font-size: 50px;
+}
+
+p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 25px;
+}
+
+main {
+    background-color: var(--my-main-background);
+}
+
+.key-line {
+    display: flex;
+}
+
+.left-align {
+    text-align: left;
+    width: 50%;
+    padding-left: 7px;
+}
+
+.right-align {
+    text-align: right;
+    width: 50%;
+    padding-right: 7px;
+}
+
+hr {
+    border-top: 1px solid var(--my-main-background);
+    width: 80%;
+}
