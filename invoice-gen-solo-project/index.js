@@ -60,5 +60,8 @@ sendBtn.addEventListener("click", function(){
         alert("Invoice sent! Thank you very much!");
         totalPrice = 0;
         updateTotalPrice();
+        trialBtn.disabled = false;
+        thirtyBtn.disabled = false;
+        fortyFiveBtn.disabled = false;
     }
 })
