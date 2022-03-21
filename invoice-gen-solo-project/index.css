@@ -1,8 +1,9 @@
 * {
-    --my-background-color: #BAACBD;
-    --my-header: #D90368;
+    --my-background-color: #2d0616;
+    --my-header: #47B347;
     --my-main-text: #ccffcc;
-    --my-main-background: #820263;
+    --my-main-background: #008000;
+    --my-button-background: #B8E6B8;
 }
 
 /* Page reset */
@@ -15,12 +16,11 @@ html, body {
 button {
     display: inline-block;
     border: none;
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
     margin: 0;
     text-decoration: none;
-    background: var(--my-header);
-    color: #ffffff;
-    font-family: sans-serif;
+    background: var(--my-button-background);
+    color: var(--my-main-background);
     font-size: 1rem;
     cursor: pointer;
     text-align: center;
@@ -31,7 +31,7 @@ button {
 }
 button:hover,
 button:focus {
-    background: var(--my-header);
+    background: var(--my-button-background);
 }
 button:focus {
     outline: 1px solid #fff;
@@ -45,7 +45,7 @@ button:active {
 body {
     background: var(--my-background-color);
     color:var(--my-main-text);
-    max-width: 750px;
+    max-width: 700px;
     margin: 0 auto;
     text-align: center;
 }
@@ -61,6 +61,7 @@ header {
 
 .callout-text {
     font-style: italic;
+    text-align: center;
 }
 
 h1 {
@@ -70,15 +71,31 @@ h1 {
 
 p {
     font-family: 'Nunito', sans-serif;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 main {
+    padding: 25px;
     background-color: var(--my-main-background);
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    border-radius: 7px;
 }
 
 .key-line {
     display: flex;
+}
+
+.small-note {
+    font-size: 20px;
 }
 
 .left-align {
@@ -96,4 +113,24 @@ main {
 hr {
     border-top: 1px solid var(--my-main-background);
     width: 80%;
+}
+
+.bottom-items {
+    display: flex;
+}
+
+.bottom-items .left-align {
+    font-size: 1em;
+    align-self: center;
+}
+
+.bottom-items .right-align {
+    font-size: 2em;
+}
+
+@media screen and (max-width: 750px) {
+    body {
+        max-width: 90%;
+    }
+    
 }
