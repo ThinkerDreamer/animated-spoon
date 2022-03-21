@@ -5,52 +5,44 @@ const thirtyBtn = document.querySelector("#thirty-btn");
 const fortyFiveBtn = document.querySelector("#forty-five-btn");
 const totalEl = document.querySelector("#total-el");
 const sendBtn = document.querySelector("#send-btn");
+let lessonsRequested = [];
 let totalPrice = 0;
 
-function updateTotalPrice() {
+function render() {
+    itemList.innerHTML = "";
+    priceList.innerHTML = "";
+    for (let i = 0; i < lessonsRequested.length; i++) {
+        let itemName = document.createElement("li");
+        itemName.textContent = lessonsRequested[i].name;
+        itemName.setAttribute("class", "left-align");
+        itemList.append(itemName);
+        let itemPrice = document.createElement("li");
+        priceList.append(itemPrice);
+        itemPrice.textContent = `\$${lessonsRequested[i].price}`;
+        itemPrice.setAttribute("class", "right-align");
+    }
     totalEl.textContent = `\$${totalPrice}`;
 }
 
 trialBtn.addEventListener("click", function(){
-    let itemName = document.createElement("li");
-    itemName.textContent = "30-minute trial lesson";
-    itemName.setAttribute("class", "left-align");
-    itemList.append(itemName);
-    let itemPrice = document.createElement("li");
-    priceList.append(itemPrice);
-    itemPrice.textContent = "$10";
-    itemPrice.setAttribute("class", "right-align");
+    lessonsRequested.push({name: "30-minute trial lesson", price: 10});
     totalPrice += 10;
     trialBtn.setAttribute("disabled", "disabled");
-    updateTotalPrice();
+    render();
 })
 
 thirtyBtn.addEventListener("click", function(){
-    let itemName = document.createElement("li");
-    itemName.textContent = "30-minute regular lesson";
-    itemName.setAttribute("class", "left-align");
-    itemList.append(itemName);
-    let itemPrice = document.createElement("li");
-    priceList.append(itemPrice);
-    itemPrice.textContent = "$15";
-    itemPrice.setAttribute("class", "right-align");
+    lessonsRequested.push({name: "30-minute regular lesson", price: 15});
     totalPrice += 15;
     thirtyBtn.setAttribute("disabled", "disabled");
-    updateTotalPrice();
+    render();
 })
 
 fortyFiveBtn.addEventListener("click", function(){
-    let itemName = document.createElement("li");
-    itemName.textContent = "45-minute regular lesson";
-    itemName.setAttribute("class", "left-align");
-    itemList.append(itemName);
-    let itemPrice = document.createElement("li");
-    priceList.append(itemPrice);
-    itemPrice.textContent = "$25";
-    itemPrice.setAttribute("class", "right-align");
+    lessonsRequested.push({name: "45-minute regular lesson", price: 25});
     totalPrice += 25;
     fortyFiveBtn.setAttribute("disabled", "disabled");
-    updateTotalPrice();
+    render();
 })
 
 sendBtn.addEventListener("click", function(){
