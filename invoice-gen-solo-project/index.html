@@ -12,7 +12,7 @@
         <div class="content">
             <header>
                 <h1>Invoice creator</h1>
-                <p>Thank you for choosing to study with <span class="callout-text">English with Angel!</span></p>
+                <p>Thank you for choosing to study with <br>✨<span class="callout-text"><span class="animation2">English with Angel</span></span>✨!</p>
             </header>
             <main>
                 <div class="btn-container">
@@ -25,8 +25,12 @@
                     <p class="left-align small-note">Task</p>
                     <p class="right-align small-note">Total</p>
                 </div>
-                <ol id="item-list">
-                </ol>
+                <div class="list-container">
+                    <ol id="item-list">
+                    </ol>
+                    <ol id="price-list">
+                    </ol>
+                </div>
                 <hr>
                 <div class="key-line">
                     <p class="left-align small-note">Notes</p>
@@ -34,10 +38,11 @@
                 </div>
                 <div class="bottom-items">
                     <p class="left-align small-note">We accept cash, credit cards, and PayPal</p>
-                    <p class="right-align small-note">$</p>
+                    <p id="total-el" class="right-align small-note">$</p>
                 </div>
                 <button id="send-btn">Send Invoice</button>
             </main>
         </div> <!-- End content -->
+        <script src="index.js"></script>
     </body>
 </html>

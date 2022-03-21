@@ -20,7 +20,7 @@ button {
     margin: 0;
     text-decoration: none;
     background: var(--my-button-background);
-    color: var(--my-main-background);
+    color: var(--my-background-color);
     font-size: 1rem;
     cursor: pointer;
     text-align: center;
@@ -48,6 +48,7 @@ body {
     max-width: 700px;
     margin: 0 auto;
     text-align: center;
+    font-family: 'Nunito', sans-serif;
 }
 
 header {
@@ -59,18 +60,38 @@ header {
     margin-top: 25px;
 }
 
-.callout-text {
-    font-style: italic;
-    text-align: center;
-}
-
 h1 {
     font-family: 'Lobster Two', cursive;
     font-size: 50px;
 }
 
+header p {
+    color: #542739;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 23px;
+}
+
+
+.callout-text {
+    color: var(--my-main-text);
+    text-align: center;
+    transition: color 1s;
+}
+
+.callout-text:hover {
+    color: #72314A;
+}
+
+.animation2 {
+    transition: font-style 1s;
+}
+
+.animation2:hover {
+    font-style: italic; 
+}
+
 p {
-    font-family: 'Nunito', sans-serif;
     font-size: 20px;
 }
 
@@ -92,6 +113,25 @@ button {
 
 .key-line {
     display: flex;
+}
+
+.list-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+li.left-align {
+    width: 100%;
+}
+
+li.right-align {
+    width: 100%;
 }
 
 .small-note {
