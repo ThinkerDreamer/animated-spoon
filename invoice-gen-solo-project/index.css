@@ -132,5 +132,8 @@ hr {
     body {
         max-width: 90%;
     }
+    button {
+        margin: 0 1px;
+    }
     
 }
