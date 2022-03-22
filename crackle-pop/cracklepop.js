@@ -1,5 +1,5 @@
 function cracklePop(max) {
-    for (let i = 0; i <= max; i++) {
+    for (let i = 1; i <= max; i++) {
         if (i % 3 === 0 && i % 5 === 0) {
             console.log("CracklePop");
         } else if (i % 3 === 0) {
