@@ -21,6 +21,17 @@ function startGame() {
     }
     newGameBtn.style.display = 'none';
     instructionsEl.textContent ="Choose your weapon...";
+    outcomeEl.textContent = "";
+    computerSymbolEl.innerHTML = "?";
+    playerSymbolEl.innerHTML = "?";
+}
+
+function resetGame() {
+    for (let i = 0; i < gameBtns.length; i++) {
+        gameBtns[i].style.display = 'none';
+    }
+    newGameBtn.style.display = 'inline';
+    instructionsEl.textContent ="Want to play again?";
 }
 
 function gameCalculations() {
@@ -30,18 +41,21 @@ function gameCalculations() {
         playerScore += 0.5;
         computerScore += 0.5;
         renderScore();
+        resetGame();
     } else if (compChoice === "rock" && playerChoice === "scissors" || 
                compChoice === "paper" && playerChoice === "rock" || 
                compChoice === "scissors" && playerChoice === "paper") {
                    outcomeEl.textContent = `Computer chose ${compChoice}! Computer wins!`;
                    computerScore += 1;
                    renderScore();
+                   resetGame();
     } else if (compChoice === "rock" && playerChoice === "paper" ||
                compChoice === "paper" && playerChoice === "scissors" || 
                compChoice === "scissors" && playerChoice === "rock") {
                    outcomeEl.textContent = `Computer chose ${compChoice}! You win!`;
                    playerScore += 1;
                    renderScore();
+                   resetGame();
                }
 }
 

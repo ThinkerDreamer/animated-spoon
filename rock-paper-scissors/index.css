@@ -23,7 +23,7 @@ main {
 
 h1 {
     color: #98A886;
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
 }
 
@@ -41,6 +41,7 @@ button {
 
 .accent-color {
     color: #A58ABC;
+    font-size: 3rem;
 }
 
 .section-name {
