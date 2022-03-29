@@ -21,29 +21,31 @@
                         <i class="fa-solid fa-bolt-lightning"></i>
                         <span class="btn-text">Generate passwords</span>
                     </button>
-                    <fieldset class="toggles">
+                    <div class="switch-group">
+                      <fieldset class="toggles">
                         <legend>Options</legend>
-                        <div>
-                          <button type="button" id="lowercase-toggle" aria-pressed="false" onclick="toggle(this.id);">
+                        <div class="toggle-section top-switches">
+                          <button type="button" id="lowercase-toggle" aria-pressed="true" onclick="toggle(this.id);">
                             Include lowercase letters
                           </button>
                         </div>
-                        <div>
-                          <button type="button" id="uppercase-toggle" aria-pressed="false" onclick="toggle(this.id);">
+                        <div class="toggle-section top-switches">
+                          <button type="button" id="uppercase-toggle" aria-pressed="true" onclick="toggle(this.id);">
                             Include uppercase letters
                           </button>
                         </div>
-                        <div>
-                          <button type="button" id="numbers-toggle" aria-pressed="true" onclick="toggle(this.id);">
+                        <div class="toggle-section bottom-switches">
+                          <button type="button" id="numbers-toggle" aria-pressed="false" onclick="toggle(this.id);">
                             Include numbers
                           </button>
                         </div>
-                        <div>
-                            <button type="button" id="symbols-toggle" aria-pressed="true" onclick="toggle(this.id);">
-                              Include symbols
-                            </button>
-                          </div>
+                        <div class="toggle-section bottom-switches">
+                          <button type="button" id="symbols-toggle" aria-pressed="false" onclick="toggle(this.id);">
+                            Include symbols
+                          </button>
+                        </div>
                       </fieldset>
+                    </div> <!-- End switch-group -->
                 </div> <!-- End action container -->
                 <hr>
                 <div class="input-container">
