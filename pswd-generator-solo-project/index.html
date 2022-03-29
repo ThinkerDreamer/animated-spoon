@@ -16,7 +16,35 @@
                 <p>Never use an insecure password again.</p>
             </header>
             <main>
-                <button onclick="generatePswds()"><i class="fa-solid fa-bolt-lightning"></i><span class="btn-text"></span>  Generate passwords</span></button>
+                <div class="action-container">
+                    <button class="gen-btn" onclick="generatePswds()">
+                        <i class="fa-solid fa-bolt-lightning"></i>
+                        <span class="btn-text">Generate passwords</span>
+                    </button>
+                    <fieldset class="toggles">
+                        <legend>Options</legend>
+                        <div>
+                          <button type="button" id="lowercase-toggle" aria-pressed="false" onclick="toggle(this.id);">
+                            Include lowercase letters
+                          </button>
+                        </div>
+                        <div>
+                          <button type="button" id="uppercase-toggle" aria-pressed="false" onclick="toggle(this.id);">
+                            Include uppercase letters
+                          </button>
+                        </div>
+                        <div>
+                          <button type="button" id="numbers-toggle" aria-pressed="true" onclick="toggle(this.id);">
+                            Include numbers
+                          </button>
+                        </div>
+                        <div>
+                            <button type="button" id="symbols-toggle" aria-pressed="true" onclick="toggle(this.id);">
+                              Include symbols
+                            </button>
+                          </div>
+                      </fieldset>
+                </div> <!-- End action container -->
                 <hr>
                 <div class="input-container">
                     <input type="text" id="pw1-el" class="password" onclick="copy(pw1El)">

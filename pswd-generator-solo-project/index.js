@@ -8,15 +8,31 @@ function addCharToArr(arr) {
         allCharacters.push(arr[i]);
     }
 }
-addCharToArr(lowerCaseLetters);
-addCharToArr(upperCaseLetters);
-addCharToArr(numbersZeroToNine);
-addCharToArr(selectedSpecialCharacters);
+// addCharToArr(lowerCaseLetters);
+// addCharToArr(upperCaseLetters);
+// addCharToArr(numbersZeroToNine);
+// addCharToArr(selectedSpecialCharacters);
 
-let pw1El = document.querySelector("#pw1-el");
-let pw2El = document.querySelector("#pw2-el");
-let pw3El = document.querySelector("#pw3-el");
-let pw4El = document.querySelector("#pw4-el");
+const lowerCaseToggle = document.querySelector("#lowerCaseToggle");
+const upperCaseToggle = document.querySelector("#upperCaseToggle");
+const numbersToggle = document.querySelector("#numbersToggle");
+const specialCharsToggle = document.querySelector("#specialCharsToggle");
+
+const pw1El = document.querySelector("#pw1-el");
+const pw2El = document.querySelector("#pw2-el");
+const pw3El = document.querySelector("#pw3-el");
+const pw4El = document.querySelector("#pw4-el");
+
+// For the accessible button toggle
+function toggle(btnID) {
+    var theButton = document.getElementById(btnID);
+    if (theButton.getAttribute("aria-pressed") == "false") {
+      theButton.setAttribute("aria-pressed", "true");
+    } else {
+      theButton.setAttribute("aria-pressed", "false");
+    }
+  }
+
 
 
 // Function to clear passwords each refresh
@@ -31,6 +47,18 @@ window.onload = function() {
 function genPswd() {
     /*todo: conditional logic for selecting
     a subset of characters to use*/
+    if (lowerCaseToggle.getAttribute("aria-pressed") == "true") {
+        addCharToArr(lowerCaseLetters);
+    }
+    if (upperCaseToggle.getAttribute("aria-pressed") == "true") {
+        addCharToArr(upperCaseLetters);
+    }
+    if (numbersToggle.getAttribute("aria-pressed") == "true") {
+        addCharToArr(numbersZeroToNine);
+    }
+    if (specialCharsToggle.getAttribute("aria-pressed") == "true") {
+        addCharToArr(selectedSpecialCharacters);
+    } 
     let password = [];
     while (password.length < 18) {
         let randomIndex = Math.floor(Math.random() * allCharacters.length);
