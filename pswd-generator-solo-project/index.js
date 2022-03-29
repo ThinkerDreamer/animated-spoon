@@ -2,21 +2,18 @@ const lowerCaseLetters = ['a', 'b','c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 
 const upperCaseLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 const numbersZeroToNine = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 const selectedSpecialCharacters = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '-', '.', '~', '|', '<', '>', '=', '-', '_', '/', ':', ';', '?', '[', ']', '{', '}', '~'];
-const allCharacters = []
+let allCharacters = []
+
 function addCharToArr(arr) {
     for (let i = 0; i < arr.length; i++) {
         allCharacters.push(arr[i]);
     }
 }
-// addCharToArr(lowerCaseLetters);
-// addCharToArr(upperCaseLetters);
-// addCharToArr(numbersZeroToNine);
-// addCharToArr(selectedSpecialCharacters);
 
-const lowerCaseToggle = document.querySelector("#lowerCaseToggle");
-const upperCaseToggle = document.querySelector("#upperCaseToggle");
-const numbersToggle = document.querySelector("#numbersToggle");
-const specialCharsToggle = document.querySelector("#specialCharsToggle");
+const lowerCaseToggle = document.querySelector("#lowercase-toggle");
+const upperCaseToggle = document.querySelector("#uppercase-toggle");
+const numbersToggle = document.querySelector("#numbers-toggle");
+const specialCharsToggle = document.querySelector("#symbols-toggle");
 
 const pw1El = document.querySelector("#pw1-el");
 const pw2El = document.querySelector("#pw2-el");
@@ -43,22 +40,23 @@ window.onload = function() {
       });
     }
 
+function fillArray() {
+  if (lowerCaseToggle.getAttribute("aria-pressed") == "true") {
+    addCharToArr(lowerCaseLetters);
+  }
+  if (upperCaseToggle.getAttribute("aria-pressed") == "true") {
+      addCharToArr(upperCaseLetters);
+  }
+  if (numbersToggle.getAttribute("aria-pressed") == "true") {
+      addCharToArr(numbersZeroToNine);
+  }
+  if (specialCharsToggle.getAttribute("aria-pressed") == "true") {
+      addCharToArr(selectedSpecialCharacters);
+  }
+}
+
 // Generates one password
 function genPswd() {
-    /*todo: conditional logic for selecting
-    a subset of characters to use*/
-    if (lowerCaseToggle.getAttribute("aria-pressed") == "true") {
-        addCharToArr(lowerCaseLetters);
-    }
-    if (upperCaseToggle.getAttribute("aria-pressed") == "true") {
-        addCharToArr(upperCaseLetters);
-    }
-    if (numbersToggle.getAttribute("aria-pressed") == "true") {
-        addCharToArr(numbersZeroToNine);
-    }
-    if (specialCharsToggle.getAttribute("aria-pressed") == "true") {
-        addCharToArr(selectedSpecialCharacters);
-    } 
     let password = [];
     while (password.length < 18) {
         let randomIndex = Math.floor(Math.random() * allCharacters.length);
@@ -70,24 +68,22 @@ function genPswd() {
 
 // Populates input fields with generated passwords
 function generatePswds() {
-    pw1El.value = genPswd();
-    pw2El.value = genPswd();
-    pw3El.value = genPswd();
-    pw4El.value = genPswd(); 
-    console.log("All 4 passwords generated.");
+  allCharacters = []; // reset the array
+  fillArray(); // adds selected characters to allCharacters array
+  pw1El.value = genPswd();
+  pw2El.value = genPswd();
+  pw3El.value = genPswd();
+  pw4El.value = genPswd(); 
+  console.log("All 4 passwords generated.");
 }
 
 function copy(pswdEl) {
-    /* Select the text field */
-    console.log("input was clicked");
-    pswdEl.select();
+    pswdEl.select(); // Select the text field
     pswdEl.setSelectionRange(0, 99999); /* For mobile devices */
 
-    /* Copy the text inside the text field */
-    navigator.clipboard.writeText(pswdEl.value);
+    navigator.clipboard.writeText(pswdEl.value); // Copy the text inside the text field
     console.log("copied the text(?)");
 
-    /* Alert the copied text */
-    alert("Copied the text: " + pswdEl.value);
+    alert("Copied the text: " + pswdEl.value); // Alert the copied text
 }
   
