@@ -15,8 +15,9 @@ h1 {
 }
 
 .container {
-    margin: 0 auto;
-    max-width: 400px;
+    margin: 20px auto;
+    width: 70%;
+    max-width: 425px;
     box-shadow: -2px 6px 18px 3px rgba(0, 0, 0, 0.75);
     padding: 50px;
     background: hsla(15, 70%, 69%, 1);
