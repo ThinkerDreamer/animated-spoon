@@ -51,8 +51,8 @@ header {
 .interests {
     width: 750px;
     margin: 100px auto 50px;
-    background-image: url("img/rainbow.jpg");
-    background-image: url("https://imgur.com/vJm0etz.jpg");
+    background-image: url("rainbow.jpg");
+    /* background-image: url("https://imgur.com/vJm0etz.jpg"); */
     background-size: cover;
     padding: 50px;
     font-weight: 500;
