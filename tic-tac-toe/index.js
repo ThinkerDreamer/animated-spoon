@@ -137,11 +137,9 @@ square8.addEventListener("click", function() {
 newGameBtn.addEventListener("click", function() {
     startGame();
 });
-
 resetBtn.addEventListener("click", function() {
     resetGame();
 });
-
 
 let board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 let player1Name = "";
@@ -201,7 +199,6 @@ function player1Move(squareNum) {
 function endGame() {
     gameOver = true;
     resetBtn.style.display = "inline-block";
-    newGameBtn.style.display = "none";
 }
 
 function player1Wins() {
@@ -248,6 +245,7 @@ function startGame() {
     player2NameEl.textContent = player2Name;
     messageEl.textContent = `${player1Name}, select a square.`;
     renderBoard();
+    newGameBtn.style.display = "none";
 }
 
 function resetGame() {
@@ -271,9 +269,14 @@ function checkWin(player) {
 
 function checkTie() {
     console.log("entering checkTie");
+    let fullSquares = 0;
     for (let i = 0; i < board.length; i++) {
+        console.log(`board[${i}] = ${board[i]}`);
         if (board[i] == player1Symbol || board[i] == player2Symbol) {
-            return false;
+            fullSquares++;
+        }
+        if (fullSquares == 9) {
+            return true;
         }
     }
 }
