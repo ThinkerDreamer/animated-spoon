@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tic-Tac-Toe</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h1>Tic-Tac-Toe</h1>
+                <div id="message">A game for two humans. Do you want to play?</div>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <div id="board">
+                    <div class="buttons">
+                        <button id="0" class="square"> </button>
+                        <button id="1" class="square"> </button>
+                        <button id="2" class="square"> </button>
+                        <button id="3" class="square"> </button>
+                        <button id="4" class="square"> </button>
+                        <button id="5" class="square"> </button>
+                        <button id="6" class="square"> </button>
+                        <button id="7" class="square"> </button>
+                        <button id="8" class="square"> </button>
+                    </div> <!-- End buttons -->
+                </div> <!-- End board -->
+                <button id="new-game">New Game</button>
+                <button id="reset">Reset</button>
+                <div id="scoreboard">
+                    <p class="player">
+                        <span class="name" id="player1Name">Player 1</span>: <span class="score" id="player1Score">0</span>
+                    </p>
+                    <p class="player">
+                        <span class="name" id="player2Name">Player 2</span>: <span class="score" id="player2Score">0</span>
+                    </p>
+                </div>
+            </div> <!-- End container -->
+        </main>
+        <script src="index.js"></script>
+    </body>
+</html>

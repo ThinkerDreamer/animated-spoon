@@ -1,0 +1,90 @@
+body {
+    background-color: black;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background: linear-gradient(90deg, hsla(280, 84%, 41%, 1) 0%, hsla(218, 97%, 56%, 1) 100%);
+    max-width: 400px;
+    width: 90%;
+    margin: 50px auto;
+    padding: 15px;
+    text-align: center;
+    color: #f19ed4;
+}
+
+header .container {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+main .container {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#board {
+    padding: 15px 0;
+}
+
+.square {
+    background: #fff;
+    border: none;
+    border-radius: 2px;
+    color: #333;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+    padding: 10px;
+    height: 75px;
+}
+
+.buttons {
+    display: grid;
+    gap: 2px;
+    grid-template-columns: repeat(3, 1fr);
+    width: 235px;
+    margin: 0 auto;
+    background-color: #333;
+}
+
+#new-game {
+    background-color: #f19ed4;
+    color: #333;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 0;
+    padding: 15px 35px;
+    border: none;
+}
+
+#new-game:active {
+    background-color: #f15bbd;
+}
+
+.player {
+    padding: 0;
+    margin: 0;
+    margin: 10px auto;
+}
+
+#reset {
+    display: none;
+    background-color: #f19ed4;
+    color: #333;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 0;
+    padding: 15px 35px;
+    border: none;
+}
