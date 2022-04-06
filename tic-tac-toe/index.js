@@ -123,10 +123,10 @@ function player2Move(squareNum) {
         player1sTurn = false;
     } else {
         board[move] = player2Symbol;  
-        if (checkTie()) {
-            tieGame();
-        } else if (checkWin(player2Symbol)) {
+        if (checkWin(player2Symbol)) {
             player2Wins();
+        } else if (checkTie()) {
+            tieGame();
         } else {
             player1sTurn = true;
             messageEl.textContent = `${player1Name}, select a square.`;
