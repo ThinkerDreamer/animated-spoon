@@ -16,96 +16,18 @@ const player2NameEl = document.getElementById("player2Name");
 const player1ScoreEl = document.getElementById("player1Score");
 const player2ScoreEl = document.getElementById("player2Score");
 
-square0.addEventListener("click", function() {
-    if (!gameOver) {
-        if (player1sTurn) {
-            player1Move(0);
-        } else {
-            player2Move(0);
+for (let square of squares) {
+    square.addEventListener("click", function() {
+        if (!gameOver) {
+            if (player1sTurn) {
+                player1Move(square.id);
+            } else {
+                player2Move(square.id);
+            }
         }
-    }
-    renderBoard();
-});
-square1.addEventListener("click", function() {
-    if (!gameOver) {
-        if (player1sTurn) {
-            player1Move(1);
-        } else {
-            player2Move(1);
-        }
-    }
-    renderBoard();
-});
-square2.addEventListener("click", function() {
-    if (!gameOver) {
-        if (player1sTurn) {
-            player1Move(2);
-        } else {
-            player2Move(2);
-        }
-    }
-    renderBoard();
-});
-square3.addEventListener("click", function() {
-    if (!gameOver) {
-        if (player1sTurn) {
-            player1Move(3);
-        } else {
-            player2Move(3);
-        }
-    }
-    renderBoard();
-});
-square4.addEventListener("click", function() {
-    if (!gameOver) {
-        if (player1sTurn) {
-            player1Move(4);
-        } else {
-            player2Move(4);
-        }
-    }
-    renderBoard();
-});
-square5.addEventListener("click", function() {
-    if (!gameOver) {
-        if (player1sTurn) {
-            player1Move(5);
-        } else {
-            player2Move(5);
-        }
-    }
-    renderBoard();
-});
-square6.addEventListener("click", function() {
-    if (!gameOver) {
-        if (player1sTurn) {
-            player1Move(6);
-        } else {
-            player2Move(6);
-        }
-    }
-    renderBoard();
-});
-square7.addEventListener("click", function() {
-    if (!gameOver) {
-        if (player1sTurn) {
-            player1Move(7);
-        } else {
-            player2Move(7);
-        }
-    }
-    renderBoard();
-});
-square8.addEventListener("click", function() {
-    if (!gameOver) {
-        if (player1sTurn) {
-            player1Move(8);
-        } else {
-            player2Move(8);
-        }
-    }
-    renderBoard();
-});
+        renderBoard();
+    });
+}
 
 newGameBtn.addEventListener("click", function() {
     startGame();
@@ -151,6 +73,24 @@ function renderBoard() {
     player2ScoreEl.textContent = player2Score;
 }
 
+function enableBoard() {
+    for (let square of squares) {
+        square.disabled = false;
+        square.style.cursor = "pointer";
+    }
+}
+
+function startGame() {
+    enableBoard();
+    player1Name = prompt("Welcome to Tic Tac Toe!\n\nPlayer 1, please enter your name: ") || "Player 1";
+    player2Name = prompt("Player 2, please enter your name: ") || "Player 2";
+    player1NameEl.textContent = player1Name;
+    player2NameEl.textContent = player2Name;
+    messageEl.textContent = `${player1Name}, select a square.`;
+    renderBoard();
+    newGameBtn.style.display = "none";
+}
+
 function player1Move(squareNum) {
     let move = squareNum;
     console.log("player1Move: " + board[move]);
@@ -189,54 +129,6 @@ function player2Move(squareNum) {
     }
 }
 
-
-function endGame() {
-    gameOver = true;
-    resetBtn.style.display = "inline-block";
-}
-
-function player1Wins() {
-    messageEl.textContent = `${player1Name} wins!`;
-    player1Score++;
-    endGame();
-}
-
-function player2Wins() {
-    messageEl.textContent = `${player2Name} wins!`;
-    player2Score++;
-    endGame();
-}
-
-function tieGame() {
-    messageEl.textContent = "It's a tie!";
-    player1Score += 0.5;
-    player2Score += 0.5;
-    endGame();
-}
-
-function startGame() {
-    for (let square of squares) {
-        square.disabled = false;
-        square.style.cursor = "pointer";
-    }
-    player1Name = prompt("Welcome to Tic Tac Toe!\n\nPlayer 1, please enter your name: ") || "Player 1";
-    player2Name = prompt("Player 2, please enter your name: ") || "Player 2";
-    player1NameEl.textContent = player1Name;
-    player2NameEl.textContent = player2Name;
-    messageEl.textContent = `${player1Name}, select a square.`;
-    renderBoard();
-    newGameBtn.style.display = "none";
-}
-
-function resetGame() {
-    board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-    player1sTurn = !player1sTurn;
-    gameOver = false;
-    messageEl.textContent = `${player1Name}, select a square.`;
-    renderBoard();
-    resetBtn.style.display = "none";
-}
-
 function checkWin(player) {
     console.log("entering checkWin");
     for (let i = 0; i < winCombos.length; i++) {
@@ -261,7 +153,46 @@ function checkTie() {
     }
 }
 
-for (let square of squares) {
-    square.disabled = true;
-    square.style.cursor = "default";
+function player1Wins() {
+    messageEl.textContent = `${player1Name} wins!`;
+    player1Score++;
+    endGame();
 }
+
+function player2Wins() {
+    messageEl.textContent = `${player2Name} wins!`;
+    player2Score++;
+    endGame();
+}
+
+function tieGame() {
+    messageEl.textContent = "It's a tie!";
+    player1Score += 0.5;
+    player2Score += 0.5;
+    endGame();
+}
+
+function endGame() {
+    gameOver = true;
+    player1sTurn = player1sTurn;
+    resetBtn.style.display = "inline-block";
+    disableBoard();
+}
+
+function resetGame() {
+    board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    gameOver = false;
+    enableBoard();
+    messageEl.textContent = `${player1Name}, select a square.`;
+    renderBoard();
+    resetBtn.style.display = "none";
+}
+
+function disableBoard() {
+    for (let square of squares) {
+        square.disabled = true;
+        square.style.cursor = "default";
+    }
+}
+
+disableBoard();
