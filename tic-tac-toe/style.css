@@ -9,7 +9,7 @@ body {
 .container {
     background: linear-gradient(90deg, hsla(280, 84%, 41%, 1) 0%, hsla(218, 97%, 56%, 1) 100%);
     max-width: 400px;
-    width: 70%;
+    width: 85%;
     margin: 50px auto;
     padding: 15px;
     text-align: center;
