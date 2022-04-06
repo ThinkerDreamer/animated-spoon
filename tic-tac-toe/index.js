@@ -238,6 +238,8 @@ function player2Move(squareNum) {
     }
 }
 
+//there is a bug when you click button before start
+
 function startGame() {
     player1Name = prompt("Welcome to Tic Tac Toe!\n\nPlayer 1, please enter your name: ") || "Player 1";
     player2Name = prompt("Player 2, please enter your name: ") || "Player 2";
