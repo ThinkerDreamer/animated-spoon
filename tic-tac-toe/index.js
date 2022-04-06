@@ -20,117 +20,90 @@ square0.addEventListener("click", function() {
     if (!gameOver) {
         if (player1sTurn) {
             player1Move(0);
-            player1sTurn = false;
         } else {
             player2Move(0);
-            player1sTurn = true;
         }
     }
-    console.log("square0 clicked");
     renderBoard();
 });
 square1.addEventListener("click", function() {
     if (!gameOver) {
         if (player1sTurn) {
             player1Move(1);
-            player1sTurn = false;
         } else {
             player2Move(1);
-            player1sTurn = true;
         }
     }
-    console.log("square1 clicked");
     renderBoard();
 });
 square2.addEventListener("click", function() {
     if (!gameOver) {
         if (player1sTurn) {
             player1Move(2);
-            player1sTurn = false;
         } else {
             player2Move(2);
-            player1sTurn = true;
         }
     }
-    console.log("square2 clicked");
     renderBoard();
 });
 square3.addEventListener("click", function() {
     if (!gameOver) {
         if (player1sTurn) {
             player1Move(3);
-            player1sTurn = false;
         } else {
             player2Move(3);
-            player1sTurn = true;
         }
     }
-    console.log("square3 clicked");
     renderBoard();
 });
 square4.addEventListener("click", function() {
     if (!gameOver) {
         if (player1sTurn) {
             player1Move(4);
-            player1sTurn = false;
         } else {
             player2Move(4);
-            player1sTurn = true;
         }
     }
-    console.log("square4 clicked");
     renderBoard();
 });
 square5.addEventListener("click", function() {
     if (!gameOver) {
         if (player1sTurn) {
             player1Move(5);
-            player1sTurn = false;
         } else {
             player2Move(5);
-            player1sTurn = true;
         }
     }
-    console.log("square5 clicked");
     renderBoard();
 });
 square6.addEventListener("click", function() {
     if (!gameOver) {
         if (player1sTurn) {
             player1Move(6);
-            player1sTurn = false;
         } else {
             player2Move(6);
-            player1sTurn = true;
         }
     }
-    console.log("square6 clicked");
     renderBoard();
 });
 square7.addEventListener("click", function() {
     if (!gameOver) {
         if (player1sTurn) {
             player1Move(7);
-            player1sTurn = false;
         } else {
             player2Move(7);
-            player1sTurn = true;
         }
     }
-    console.log("square7 clicked");
     renderBoard();
 });
 square8.addEventListener("click", function() {
     if (!gameOver) {
         if (player1sTurn) {
             player1Move(8);
-            player1sTurn = false;
         } else {
             player2Move(8);
-            player1sTurn = true;
         }
     }
-    console.log("square8 clicked");
     renderBoard();
 });
 
@@ -180,21 +153,42 @@ function renderBoard() {
 
 function player1Move(squareNum) {
     let move = squareNum;
+    console.log("player1Move: " + board[move]);
     if (board[move] == player1Symbol || board[move] == player2Symbol) {
         messageEl.textContent = "Invalid move. Please choose an unoccupied square.";
+        player1sTurn = true;
     } else {
-    board[move] = player1Symbol;
-    }
-    if (!checkWin(player1Symbol) && !checkTie()) {
-        player1sTurn = false;
-        messageEl.textContent = `${player2Name}, select a square.`;
-        renderBoard();
-    } else if (checkWin(player1Symbol)) {
-        player1Wins();
-    } else if (checkTie()) {
-        tieGame();
+        board[move] = player1Symbol;
+        if (!checkWin(player1Symbol) && !checkTie()) {
+            player1sTurn = false;
+            messageEl.textContent = `${player2Name}, select a square.`;
+            renderBoard();
+        } else if (checkWin(player1Symbol)) {
+            player1Wins();
+        } else if (checkTie()) {
+            tieGame();
+        }
     }
 }
+function player2Move(squareNum) {
+    let move = squareNum;
+    if (board[move] == player1Symbol || board[move] == player2Symbol) {
+        messageEl.textContent = "Invalid move. Please choose an unoccupied square.";
+        player1sTurn = false;
+    } else {
+        board[move] = player2Symbol;  
+        if (!checkWin(player2Symbol) && !checkTie()) {
+            player1sTurn = true;
+            messageEl.textContent = `${player1Name}, select a square.`;
+            renderBoard();
+        } else if (checkWin(player2Symbol)) {
+            player2Wins();
+        } else if (checkTie()) {
+            tieGame();
+        }
+    }
+}
+
 
 function endGame() {
     gameOver = true;
@@ -220,27 +214,11 @@ function tieGame() {
     endGame();
 }
 
-function player2Move(squareNum) {
-    let move = squareNum;
-    if (board[move] == player1Symbol || board[move] == player2Symbol) {
-        messageEl.textContent = "Invalid move. Please choose an unoccupied square.";
-    } else {
-    board[move] = player2Symbol;
-    }  
-    if (!checkWin(player2Symbol) && !checkTie()) {
-        player1sTurn = true;
-        messageEl.textContent = `${player1Name}, select a square.`;
-        renderBoard();
-    } else if (checkWin(player2Symbol)) {
-        player2Wins();
-    } else if (checkTie()) {
-        tieGame();
-    }
-}
-
-//there is a bug when you click button before start
-
 function startGame() {
+    for (let square of squares) {
+        square.disabled = false;
+        square.style.cursor = "pointer";
+    }
     player1Name = prompt("Welcome to Tic Tac Toe!\n\nPlayer 1, please enter your name: ") || "Player 1";
     player2Name = prompt("Player 2, please enter your name: ") || "Player 2";
     player1NameEl.textContent = player1Name;
@@ -252,7 +230,7 @@ function startGame() {
 
 function resetGame() {
     board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-    player1sTurn = true;
+    player1sTurn = !player1sTurn;
     gameOver = false;
     messageEl.textContent = `${player1Name}, select a square.`;
     renderBoard();
@@ -281,4 +259,9 @@ function checkTie() {
             return true;
         }
     }
+}
+
+for (let square of squares) {
+    square.disabled = true;
+    square.style.cursor = "default";
 }
