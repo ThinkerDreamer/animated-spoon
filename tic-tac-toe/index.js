@@ -79,6 +79,12 @@ function enableBoard() {
         square.style.cursor = "pointer";
     }
 }
+function disableBoard() {
+    for (let square of squares) {
+        square.disabled = true;
+        square.style.cursor = "default";
+    }
+}
 
 function startGame() {
     enableBoard();
@@ -99,15 +105,15 @@ function player1Move(squareNum) {
         player1sTurn = true;
     } else {
         board[move] = player1Symbol;
-        if (!checkWin(player1Symbol) && !checkTie()) {
+        if (checkTie()) {
+            tieGame();
+        } else if (checkWin(player1Symbol)) {
+            player1Wins();
+        } else {
             player1sTurn = false;
             messageEl.textContent = `${player2Name}, select a square.`;
             renderBoard();
-        } else if (checkWin(player1Symbol)) {
-            player1Wins();
-        } else if (checkTie()) {
-            tieGame();
-        }
+        } 
     }
 }
 function player2Move(squareNum) {
@@ -117,14 +123,14 @@ function player2Move(squareNum) {
         player1sTurn = false;
     } else {
         board[move] = player2Symbol;  
-        if (!checkWin(player2Symbol) && !checkTie()) {
+        if (checkTie()) {
+            tieGame();
+        } else if (checkWin(player2Symbol)) {
+            player2Wins();
+        } else {
             player1sTurn = true;
             messageEl.textContent = `${player1Name}, select a square.`;
             renderBoard();
-        } else if (checkWin(player2Symbol)) {
-            player2Wins();
-        } else if (checkTie()) {
-            tieGame();
         }
     }
 }
@@ -138,7 +144,6 @@ function checkWin(player) {
     }
     return false;
 }
-
 function checkTie() {
     console.log("entering checkTie");
     let fullSquares = 0;
@@ -158,13 +163,11 @@ function player1Wins() {
     player1Score++;
     endGame();
 }
-
 function player2Wins() {
     messageEl.textContent = `${player2Name} wins!`;
     player2Score++;
     endGame();
 }
-
 function tieGame() {
     messageEl.textContent = "It's a tie!";
     player1Score += 0.5;
@@ -186,13 +189,6 @@ function resetGame() {
     messageEl.textContent = `${player1Name}, select a square.`;
     renderBoard();
     resetBtn.style.display = "none";
-}
-
-function disableBoard() {
-    for (let square of squares) {
-        square.disabled = true;
-        square.style.cursor = "default";
-    }
 }
 
 disableBoard();
