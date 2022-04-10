@@ -20,7 +20,7 @@ let gameOver = false;
 const player1Symbol = "X";
 const player2Symbol = "O";
 let board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-const winCombos = [   [0, 1, 2],  //horizontal
+const winCombos = [ [0, 1, 2],  //horizontal
                     [3, 4, 5],  //horizontal
                     [6, 7, 8],  //horizontal
                     [0, 3, 6],  //vertical
@@ -28,7 +28,7 @@ const winCombos = [   [0, 1, 2],  //horizontal
                     [2, 5, 8],  //vertical
                     [0, 4, 8],  //diagonal
                     [2, 4, 6]   //diagonal
-                ];
+                  ];
 
 // Add an event listener to each square according to its ID number
 for (let square of squares) {
