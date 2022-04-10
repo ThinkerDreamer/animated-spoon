@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tic-Tac-Toe</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="overlay">
+            <div class="modal">
+                <h2>Who is playing?</h2>
+                <form>
+                    <div class="flex-row">
+                        <div class="p-2 text-center">
+                            <label for="player1">Player 1</label>
+                            <input type="text" class="w-full" id="player1-input" name="player1">
+                        </div>
+                        <div class="p-2 text-center">
+                            <label for="player2">Player 2</label>
+                            <input type="text" class="w-full" id="player2-input" name="player2">
+                        </div>
+                    </div> <!-- End flex-row -->
+
+                    <div class="text-center">
+                        <button id="name-submit">Let's go!</button>
+                    </div>
+                </form>                
+            </div> <!-- End modal -->
+        </div> <!-- End overlay -->
+
+        <header>
+            <div class="container">
+                <h1>Tic-Tac-Toe</h1>
+                <div id="message">A game for two humans. Do you want to play?</div>
+            </div>
+        </header>
+
+        <main>
+            <div class="container">
+                <div id="board">
+                    <div class="buttons">
+                        <button id="0" class="square"> </button>
+                        <button id="1" class="square"> </button>
+                        <button id="2" class="square"> </button>
+                        <button id="3" class="square"> </button>
+                        <button id="4" class="square"> </button>
+                        <button id="5" class="square"> </button>
+                        <button id="6" class="square"> </button>
+                        <button id="7" class="square"> </button>
+                        <button id="8" class="square"> </button>
+                    </div> <!-- End buttons -->
+                </div> <!-- End board -->
+                <button id="new-game">Start Game</button>
+                <button id="reset">Play Again</button>
+                <div id="scoreboard">
+                    <p class="player">
+                        <span class="name" id="player1Name">Player 1</span>: <span class="score" id="player1Score">0</span>
+                    </p>
+                    <p class="player">
+                        <span class="name" id="player2Name">Player 2</span>: <span class="score" id="player2Score">0</span>
+                    </p>
+                </div>
+            </div> <!-- End container -->
+        </main>
+        <script src="index.js"></script>
+    </body>
+</html>
