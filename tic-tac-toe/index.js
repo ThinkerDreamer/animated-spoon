@@ -66,13 +66,14 @@ function renderBoard() {
     let content = "";
     for (let i = 0; i < board.length; i++) {
         for (let j = 0; j < squares.length; j++) {
-            // if the symbol is in the array, render it on the DOM
+            // If the symbol is in the array, render it on the DOM
             if (board[i] == player1Symbol) {
                 content = player1Symbol;
             } else if (board[i] == player2Symbol) {
                 content = player2Symbol;
             } else {
-                content = ""; // otherwise, leave it blank
+                // Otherwise, leave it blank
+                content = "";
             }
         }
         squares[i].textContent = content;
