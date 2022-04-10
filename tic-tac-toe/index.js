@@ -16,11 +16,11 @@ let player2Name = "Player 2";
 let player1Score = 0;
 let player2Score = 0;
 let player1sTurn = true;
-let player1Symbol = "X";
-let player2Symbol = "O";
 let gameOver = false;
+const player1Symbol = "X";
+const player2Symbol = "O";
 let board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-let winCombos = [   [0, 1, 2],  //horizontal
+const winCombos = [   [0, 1, 2],  //horizontal
                     [3, 4, 5],  //horizontal
                     [6, 7, 8],  //horizontal
                     [0, 3, 6],  //vertical
