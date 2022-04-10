@@ -11,6 +11,13 @@ body {
     background: #000;
 }
 
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0;
+    width: 90%;
+}
+
 /* background */
 header {
     background: linear-gradient(
