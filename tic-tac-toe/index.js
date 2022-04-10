@@ -6,6 +6,10 @@ const player1NameEl = document.getElementById("player1Name");
 const player2NameEl = document.getElementById("player2Name");
 const player1ScoreEl = document.getElementById("player1Score");
 const player2ScoreEl = document.getElementById("player2Score");
+const overlay = document.querySelector(".overlay");
+const player1Input = document.getElementById("player1-input");
+const player2Input = document.getElementById("player2-input");
+const nameSubmit = document.getElementById("name-submit");
 
 for (let square of squares) {
     square.addEventListener("click", function() {
@@ -20,16 +24,27 @@ for (let square of squares) {
     });
 }
 
+let player1Name = "Player 1";
+let player2Name = "Player 2";
+
 newGameBtn.addEventListener("click", function() {
-    startGame();
+    overlay.style.display = "flex";
 });
+
 resetBtn.addEventListener("click", function() {
     resetGame();
 });
 
+nameSubmit.addEventListener("click", function(event) {
+    event.preventDefault(); // To prevent the page from refreshing
+    player1Name = player1Input.value ? player1Input.value : player1Name;
+    player2Name = player2Input.value ? player2Input.value : player2Name;
+    overlay.style.display = "none";
+    startGame();
+})
+
 let board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-let player1Name = "";
-let player2Name = "";
+
 let player1Score = 0;
 let player2Score = 0;
 let player1sTurn = true;
@@ -79,8 +94,6 @@ function disableBoard() {
 
 function startGame() {
     enableBoard();
-    player1Name = prompt("Welcome to Tic Tac Toe!\n\nPlayer 1, please enter your name: ") || "Player 1";
-    player2Name = prompt("Player 2, please enter your name: ") || "Player 2";
     player1NameEl.textContent = player1Name;
     player2NameEl.textContent = player2Name;
     messageEl.textContent = `${player1Name}, select a square.`;

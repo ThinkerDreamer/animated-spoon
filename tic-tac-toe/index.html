@@ -10,6 +10,26 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <div class="overlay">
+            <div class="modal">
+                <h2>Who is playing?</h2>
+                <form class="modal-form">
+                    <div class="flex-row">
+                        <div class="p-2 text-center">
+                            <label for="player1">Player 1</label>
+                            <input type="text" class="w-full" id="player1-input" name="player1">
+                        </div>
+                        <div class="p-2 text-center">
+                            <label for="player2">Player 2</label>
+                            <input type="text" class="w-full" id="player2-input" name="player2">
+                        </div>
+                    </div> <!-- End flex-row -->
+                    <div class="text-center">
+                        <button id="name-submit">Let's go!</button>
+                    </div>
+                </form>               
+            </div> <!-- End modal -->
+        </div> <!-- End overlay -->
         <header>
             <div class="container">
                 <h1>Tic-Tac-Toe</h1>
