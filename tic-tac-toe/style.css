@@ -159,6 +159,9 @@ input {
     height: 75px;
     line-height: 0;
 }
+.square:hover {
+    background: #F5EEF3;
+}
 
 .buttons {
     display: grid;
@@ -179,7 +182,7 @@ input {
     border: none;
 }
 
-.btn:active {
+.btn:active, .btn:hover {
     background-color: #f15bbd;
 }
 
