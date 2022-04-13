@@ -15,6 +15,9 @@ html {
     box-sizing: inherit;
 }
 
+
+/* Typography and Spacing */
+
 html {
     margin: 0;
     padding: 0;
@@ -49,6 +52,7 @@ header .container {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
+
 main .container {
     margin-top: 0;
     padding-top: 0;
@@ -63,63 +67,14 @@ h1 {
     text-align: center;
 }
 
-#board {
-    padding: 15px 0;
-}
-
-.square {
-    background: #fff;
-    border: none;
-    border-radius: 2px;
-    color: #333;
-    cursor: pointer;
-    font-size: 3.3rem;
-    font-family: 'Architects Daughter', cursive;
-    margin: 0;
-    padding: 10px;
-    height: 75px;
-    line-height: 0;
-}
-
-.buttons {
-    display: grid;
-    gap: 2px;
-    grid-template-columns: repeat(3, 1fr);
-    width: 235px;
-    margin: 0 auto;
-    background-color: #333;
-}
-
-#new-game {
-    background-color: #f19ed4;
-    color: #333;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin: 0;
-    padding: 15px 35px;
-    border: none;
-}
-
-#new-game:active {
-    background-color: #f15bbd;
-}
-
-.player {
+.scoreboard-player {
     padding: 0;
     margin: 0;
     margin: 10px auto;
 }
 
-#reset {
-    display: none;
-    background-color: #f19ed4;
-    color: #333;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin: 0;
-    padding: 15px 35px;
-    border: none;
-}
+
+/* Modal Styles */
 
 .overlay {
     display: none;
@@ -152,7 +107,11 @@ h1 {
 
 .flex-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+.player-name-input {
+    display: none;
 }
 
 .w-full {
@@ -169,6 +128,7 @@ input {
     border-radius: 2px;
     text-align: center;
     font-size: 1.2rem;
+    padding: 5px;
 }
 
 .p-2 {
@@ -179,12 +139,60 @@ input {
     text-align: center;
 }
 
-#name-submit {
+
+/* Game Part Styles */
+
+#board {
+    padding: 15px 0;
+}
+
+.square {
+    background: #fff;
+    border: none;
+    border-radius: 2px;
+    color: #333;
+    cursor: pointer;
+    font-size: 3.3rem;
+    font-family: 'Architects Daughter', cursive;
+    margin: 0;
+    padding: 10px;
+    height: 75px;
+    line-height: 0;
+}
+
+.buttons {
+    display: grid;
+    gap: 2px;
+    grid-template-columns: repeat(3, 1fr);
+    width: 235px;
+    margin: 0 auto;
+    background-color: #333;
+}
+
+.btn {
     background-color: #f19ed4;
     color: #333;
     font-size: 1.2rem;
     cursor: pointer;
+    margin: 0;
+    padding: 15px 35px;
+    border: none;
+}
+
+.btn:active {
+    background-color: #f15bbd;
+}
+
+#reset {
+    display: none;
+}
+
+.vs-btn {
+    margin: 2px;
+}
+
+#name-submit {
     margin-top: 15px;
     padding: 10px 25px;
-    border: none;
+    display: none;
 }
