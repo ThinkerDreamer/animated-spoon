@@ -2,26 +2,30 @@
 <html>
     <head>
         <link rel="stylesheet" href="index.css">
+        <title>Metric / Imperial Unit Converter</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <header>
-            <h1>Metric / Imperial Unit Conversions</h1>
-            <p id="base-num">20</p>
-            <div class="input-area">
-                <div class="form__group">
-                    <input type="input" class="form__field" id="num-input" name="num-input" onKeyPress="numInputKeyPress()" onKeyUp="numInputKeyPress()">
-                    <label for="num-input" class="form__label">Enter a number to convert</label>
+        <div class="container">
+            <header>
+                <h1>Metric / Imperial Unit Conversions</h1>
+                <p id="base-num">20</p>
+                <div class="input-area">
+                    <div class="form__group">
+                        <input type="input" class="form__field" id="num-input" name="num-input" onKeyPress="numInputKeyPress()" onKeyUp="numInputKeyPress()">
+                        <label for="num-input" class="form__label">Enter a number to convert</label>
+                    </div>
                 </div>
-            </div>
-        </header>
-        <main class="results">
-            <h3>Length (Meters/Feet)</h3>
-            <p id="len-results"></p>
-            <h3>Volume (Liters/Gallons)</h3>
-            <p id="vol-results"></p>
-            <h3>Mass (Kilograms/Pounds)</h3>
-            <p id="mass-results"></p>
-        </main>
+            </header>
+            <main class="results">
+                <h3>Length (Meters/Feet)</h3>
+                <p id="len-results"></p>
+                <h3>Volume (Liters/Gallons)</h3>
+                <p id="vol-results"></p>
+                <h3>Mass (Kilograms/Pounds)</h3>
+                <p id="mass-results"></p>
+            </main>
+        </div>
         <script src="index.js"></script>
     </body>
 </html>
