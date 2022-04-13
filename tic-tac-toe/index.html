@@ -12,15 +12,19 @@
     <body>
         <div class="overlay">
             <div class="modal">
-                <h2>Who is playing?</h2>
+                <h2 id="modal-h2">Who is playing?</h2>
                 <form>
                     <div class="flex-row">
-                        <div class="p-2 text-center">
-                            <label for="player1">Player 1</label>
+                        <button id="human-vs-human" class="vs-btn" type="button">Two humans</button>
+                        <button id="human-vs-computer" class="vs-btn" type="button">Human vs. computer</button>
+                    </div>
+                    <div class="flex-row">
+                        <div class="p-2 text-center player-name-input">
+                            <label for="player1" id="player1-label">Player 1</label>
                             <input type="text" class="w-full" id="player1-input" name="player1">
                         </div>
-                        <div class="p-2 text-center">
-                            <label for="player2">Player 2</label>
+                        <div class="p-2 text-center player-name-input">
+                            <label for="player2" id="player2-label">Player 2</label>
                             <input type="text" class="w-full" id="player2-input" name="player2">
                         </div>
                     </div> <!-- End flex-row -->
@@ -35,7 +39,7 @@
         <header>
             <div class="container">
                 <h1>Tic-Tac-Toe</h1>
-                <div id="message">A game for two humans. Do you want to play?</div>
+                <div id="message">A game for two. Do you want to play?</div>
             </div>
         </header>
 
