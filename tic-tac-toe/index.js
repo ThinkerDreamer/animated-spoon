@@ -47,7 +47,7 @@ for (let square of squares) {
     });
 }
 
-// When start button is clicked, show modal to enter player names
+// When start button is clicked, show modal to choose game mode
 newGameBtn.addEventListener("click", function() {
     overlay.style.display = "flex";
 });
@@ -144,39 +144,42 @@ function startGame() {
 
 // Main game function when a square is clicked
 function playerMove(squareNum) {
-    // squareNum is number of clicked square
-    let move = squareNum;
-    let playerName = "";
-    // If an X or O is in that spot already...
-    if (board[move] == player1Symbol || board[move] == player2Symbol) {
-        messageEl.textContent = "Invalid move. Please choose an unoccupied square.";
-        // ...make the same player go again (don't change player1sTurn)
-    } else { // If the square is empty
-        if (player1sTurn) {
-            // If it's a valid move, record it with an X
-            board[move] = player1Symbol;
-            if (checkWin(player1Symbol)) {
-                player1Wins();
-                return; // Don't change player1sTurn, check for a tie, or render the board
+    // If it's the human's move, allow them to make a move
+    if ((playAgainstComputer && player1sTurn) || !playAgainstComputer) {
+        // squareNum is number of clicked square
+        let move = squareNum;
+        let playerName = "";
+        // If an X or O is in that spot already...
+        if (board[move] == player1Symbol || board[move] == player2Symbol) {
+            messageEl.textContent = "Invalid move. Please choose an unoccupied square.";
+            // ...make the same player go again (don't change player1sTurn)
+        } else { // If the square is empty
+            if (player1sTurn) {
+                // If it's a valid move, record it with an X
+                board[move] = player1Symbol;
+                if (checkWin(player1Symbol)) {
+                    player1Wins();
+                    return; // Don't change player1sTurn, check for a tie, or render the board
+                }
+            } else { // Player 2's turn
+                // If it's a valid move, record it with an O
+                board[move] = player2Symbol;
+                if (checkWin(player2Symbol)) {
+                    player2Wins();
+                    return; // Don't change player1sTurn, check for a tie, or render the board
+                } 
             }
-        } else { // Player 2's turn
-            // If it's a valid move, record it with an O
-            board[move] = player2Symbol;
-            if (checkWin(player2Symbol)) {
-                player2Wins();
-                return; // Don't change player1sTurn, check for a tie, or render the board
-            } 
-        }
-        if (checkTie()) {
-            tieGame();
-        } else {
-            // If no win, no tie, let the next player go
-            player1sTurn = !player1sTurn;
-            playerName = player1sTurn ? player1Name : player2Name;
-            messageEl.textContent = `${playerName}, select a square.`;
-            renderBoard();
-            if (playAgainstComputer && !player1sTurn) {
-                computerMove();
+            if (checkTie()) {
+                tieGame();
+            } else {
+                // If no win, no tie, let the next player go
+                player1sTurn = !player1sTurn;
+                playerName = player1sTurn ? player1Name : player2Name;
+                messageEl.textContent = `${playerName}, select a square.`;
+                renderBoard();
+                if (playAgainstComputer && !player1sTurn) {
+                    computerMove();
+                }
             }
         }
     }
