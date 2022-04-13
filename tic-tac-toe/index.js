@@ -7,6 +7,12 @@ const player2NameEl = document.getElementById("player2Name");
 const player1ScoreEl = document.getElementById("player1Score");
 const player2ScoreEl = document.getElementById("player2Score");
 const overlay = document.querySelector(".overlay");
+const humanVsHumanBtn = document.getElementById("human-vs-human");
+const humanVsComputerBtn = document.getElementById("human-vs-computer");
+const playerNameInputs = document.getElementsByClassName("player-name-input");
+const modalH2 = document.getElementById("modal-h2");
+const player1Label = document.getElementById("player1-label");
+const player2Label = document.getElementById("player2-label");
 const player1Input = document.getElementById("player1-input");
 const player2Input = document.getElementById("player2-input");
 const nameSubmit = document.getElementById("name-submit");
@@ -15,6 +21,7 @@ let player1Name = "Player 1";
 let player2Name = "Player 2";
 let player1Score = 0;
 let player2Score = 0;
+let playAgainstComputer = false;
 let player1sTurn = true;
 let gameOver = false;
 const player1Symbol = "X";
@@ -45,6 +52,33 @@ newGameBtn.addEventListener("click", function() {
     overlay.style.display = "flex";
 });
 
+humanVsHumanBtn.addEventListener("click", function() {
+    playAgainstComputer = false;
+    displayNameInputs();
+});
+
+function displayNameInputs() {
+    for (let input of playerNameInputs) {
+        input.style.display = "block";
+    }
+    nameSubmit.style.display = "inline-block";
+    humanVsHumanBtn.style.display = "none";
+    humanVsComputerBtn.style.display = "none";
+}
+
+humanVsComputerBtn.addEventListener("click", function() {
+    playAgainstComputer = true;
+    player1Name = "Human";
+    player2Name = "Computer";
+    modalH2.textContent = "Enter your name, human.";
+    modalH2.style.marginBottom = "10px";
+    displayNameInputs();
+    player2Input.value = "Computer";
+    player2Input.setAttribute("disabled", "true");
+    player1Label.textContent = "Human";
+    player2Label.textContent = "Computer";
+});
+
 resetBtn.addEventListener("click", function() {
     resetGame();
 });
@@ -53,8 +87,8 @@ resetBtn.addEventListener("click", function() {
 nameSubmit.addEventListener("click", function(event) {
     // Prevent the page from refreshing
     event.preventDefault();
-    // Get players' preferred names, otherwise use "Player 1/2" as defaults
-    player1Name = player1Input.value ? player1Input.value : player1Name;
+    // Get players' preferred names, otherwise use "Player 1/2" / "Human/Computer" as defaults
+    player1Name = player1Input.value ? player1Input.value : player1Name; 
     player2Name = player2Input.value ? player2Input.value : player2Name;
     // Hide the overlay
     overlay.style.display = "none";
@@ -141,7 +175,33 @@ function playerMove(squareNum) {
             playerName = player1sTurn ? player1Name : player2Name;
             messageEl.textContent = `${playerName}, select a square.`;
             renderBoard();
+            if (playAgainstComputer && !player1sTurn) {
+                computerMove();
+            }
         }
+    }
+}
+
+function computerMove() {
+    // If it's player 2's turn (computer's turn), choose a random square
+    if (!player1sTurn) {
+        let randomSquare = Math.floor(Math.random() * 9);
+        while (board[randomSquare] == player1Symbol || board[randomSquare] == player2Symbol) {
+            randomSquare = Math.floor(Math.random() * 9);
+        }
+        messageEl.textContent = `Computer is thinking...`;
+        setTimeout(() => {
+            board[randomSquare] = player2Symbol;
+            if (checkWin(player2Symbol)) {
+                player2Wins();
+            } else if (checkTie()) {
+                tieGame();
+            } else {
+                player1sTurn = !player1sTurn;
+                messageEl.textContent = `${player1Name}, select a square.`;
+                renderBoard();
+            }
+        }, 1750); // Delay computer's move by 1.75 seconds
     }
 }
 
@@ -189,9 +249,15 @@ function tieGame() {
 
 // End game function
 function endGame() {
+    renderBoard();
     gameOver = true;
-    // The player who played last goes second next game
-    player1sTurn = !player1sTurn; 
+    // In Human vs. Human, the player who played last goes second next game
+    if (!playAgainstComputer) {
+        player1sTurn = !player1sTurn; 
+    } else {
+        // Human always goes first against computer
+        player1sTurn = true;
+    }
     // Show reset button
     resetBtn.style.display = "inline-block";
     disableBoard();
