@@ -185,6 +185,14 @@ function playerMove(squareNum) {
     }
 }
 
+// TODO: Add computer logic
+//    Computer's choices of a move: 
+//      1) If a move completes a computer win, make it
+//      2) If a move blocks a human win, make it
+//      3) If the center square is empty, take it
+//      4) If the corners are empty, take one of them
+//      5) Else, the sides are empty, take one of them
+
 function computerMove() {
     // If it's player 2's turn (computer's turn), choose a random square
     if (!player1sTurn) {
