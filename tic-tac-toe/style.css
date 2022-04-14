@@ -159,8 +159,12 @@ input {
     height: 75px;
     line-height: 0;
 }
-.square:hover {
+.square:hover:not([disabled]) {
     background: #F5EEF3;
+}
+
+.square:focus {
+    outline: none;
 }
 
 .buttons {
@@ -184,6 +188,10 @@ input {
 
 .btn:active, .btn:hover {
     background-color: #f15bbd;
+}
+
+.btn:focus {
+    outline: 2px solid #fff;
 }
 
 #reset {
