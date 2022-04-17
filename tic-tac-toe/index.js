@@ -182,16 +182,57 @@ function playerMove(squareNum) {
     }
 }
 
+// TODO: Add computer logic
+//    Computer's choices of a move: 
+//      1) If a move completes a computer win, make it
+//      2) If a move blocks a human win, make it
+//      3) If the center square is empty, take it
+//      4) If the corners are empty, take one of them
+//      5) Else, the sides are empty, take one of them
+// const winCombos = [ [0, 1, 2],  //horizontal
+//                     [3, 4, 5],  //horizontal
+//                     [6, 7, 8],  //horizontal
+//                     [0, 3, 6],  //vertical
+//                     [1, 4, 7],  //vertical
+//                     [2, 5, 8],  //vertical
+//                     [0, 4, 8],  //diagonal
+//                     [2, 4, 6]   //diagonal
+//                   ];
+
 function computerMove() {
     // If it's player 2's turn (computer's turn), choose a random square
     if (!player1sTurn) {
-        let randomSquare = Math.floor(Math.random() * 9);
-        while (board[randomSquare] == player1Symbol || board[randomSquare] == player2Symbol) {
+        let move = "";
+        for (combo of winCombos) {
+            let xCounter = 0;
+            let emptyCounter = 0;
+            let emptySquareIndex = "";
+            for (item of combo) {
+                if(combo[item] == player2Symbol) {
+                    xCounter++;
+                } else if (combo[item] == "") {
+                    emptyCounter++;
+                    emptySquareIndex = item;
+                }
+            }
+            if (xCounter == 2 && emptyCounter == 1) {
+                move = emptySquareIndex;
+                console.log(`${move} = move`);
+            }
+            
+        }
+        if (!move) {
+            let randomSquare = Math.floor(Math.random() * 9);
+            while (board[randomSquare] == player1Symbol || board[randomSquare] == player2Symbol) {
             randomSquare = Math.floor(Math.random() * 9);
+            move = randomSquare;
+        }
+
         }
         messageEl.textContent = `Computer is thinking...`;
+        console.log(`${board} = board, ${move} = move`);
         setTimeout(() => {
-            board[randomSquare] = player2Symbol;
+            board[move] = player2Symbol;
             if (checkWin(player2Symbol)) {
                 player2Wins();
             } else if (checkTie()) {
