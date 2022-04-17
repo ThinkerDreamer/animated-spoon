@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+    font-family: "Helvetica Neue", Tahoma, Geneva, Verdana, sans-serif;
+    /* color: #C4A69D; */
+    color: #E79479;
+}
+header {
+    background: #272130;
+    max-width: 500px;
+    margin: 20px auto 0;
+    padding: 15px 15px 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+main {
+    max-width: 500px;
+    margin:0 auto;
+    background-color: #363457;
+    padding: 15px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+h1 {
+    /* color: #98A886; */
+    color: #9ad558;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+p {
+    text-align: center;
+    font-size: 20px;
+    margin: 10px;
+}
+
+button {
+    border:none;
+    padding: 12px 30px;
+    font-size: 20px;
+    margin: 10px;
+}
+
+.accent-color {
+    /* color: #A58ABC; */
+    color: #AB63E3;
+    font-size: 3rem;
+}
+
+.section-name {
+    color: #9ad558;
+    padding-top: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.button-container {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.game-symbols-container {
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.game-symbols-container div div {
+    font-size: 80px;
+    text-align: center;
+    color: #fff;
+}
+
+.score-container {
+    max-width: 200px;
+    margin: 0 auto;
+}

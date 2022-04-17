@@ -11,6 +11,13 @@ body {
     background: #000;
 }
 
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0;
+    width: 90%;
+}
+
 /* background */
 header {
     background: linear-gradient(
@@ -31,10 +38,6 @@ header {
         margin-top: 20px;
         margin-bottom: 0;
         padding: 0;
-        -webkit-border-top-left-radius: 12px;
-        -webkit-border-top-right-radius: 12px;
-        -moz-border-radius-topleft: 12px;
-        -moz-border-radius-topright: 12px;
         border-top-left-radius: 12px;
         border-top-right-radius: 12px;
 }
@@ -44,6 +47,10 @@ h1 {
     text-align: center;
     padding-top: 20px;
     padding-bottom: 0;
+    margin-top: 0;
+}
+
+h3 {
     margin-top: 0;
 }
 
@@ -62,19 +69,15 @@ main {
     color: #fff;
     text-align: center;
     margin: 0 auto 20px;
-    padding-top: 0;
     padding: 20px;
-    -webkit-border-bottom-left-radius: 12px;
-    -webkit-border-bottom-right-radius: 12px;
-    -moz-border-radius-bottomleft: 12px;
-    -moz-border-radius-bottomright: 12px;
+    padding-top: 0;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
 }
 
 .input-area {
     text-align: center;
-    padding: 10px 30px 30px;
+    padding: 10px 30px 10px;
     margin: 0 auto;
     background: #1F2937;
 }

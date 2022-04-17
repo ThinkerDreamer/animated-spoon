@@ -21,8 +21,9 @@ body {
     /* background-color: #3C153B; */
     background-color: var(--my-purple);
     padding: 50px;
-    margin: 50px auto;
+    margin: 25px auto;
     padding-top: 75px;
+    padding-bottom: 40px;
     border-radius: 5px;
     box-shadow: 0 3px 10px rgba(66, 35, 0, 0.5);
 }
@@ -51,7 +52,7 @@ p {
 
 .toggle-section {
   width: min-content;
-  padding: 10px;
+  padding: 5px;
 }
 
 .gen-btn {
@@ -60,6 +61,7 @@ p {
     border: none;
     font-weight: 600;
     padding: 15px 30px;
+    margin-right: 5px;
     font-size: 16px;
     line-height: 24px;
     border-radius: 5px;
@@ -105,15 +107,15 @@ fieldset.toggles div {
 }
 
 fieldset.toggles > div {
-  margin: 1.5em 0;
+  margin: 5px 0;
 }
 
 fieldset.toggles > div:first-of-type {
-  margin-top: 1em;
+  margin-top: 5px;
 }
 
 fieldset.toggles > div:last-of-type {
-  margin-bottom: 1em;
+  margin-bottom: 5px;
 }
 
 fieldset.toggles {
@@ -240,7 +242,7 @@ fieldset.toggles {
 hr {
     border: 0;
     height: 1px;
-    margin-top: 15px;
+    margin-top: 25px;
     background-image: linear-gradient(to right, rgba(200, 191, 217, .3), rgba(200, 191, 217, 0.75), rgba(200, 191, 217, .3));
 }
 
@@ -249,7 +251,7 @@ hr {
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
     justify-content: space-between;
-    margin-top: 35px;
+    margin-top: 15px;
 }
 
 .password {

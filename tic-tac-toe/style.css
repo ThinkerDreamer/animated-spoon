@@ -5,6 +5,7 @@
     5.4px 6.4px 11.4px -0.6px hsl(var(--shadow-color) / 0.48),
     11.7px 14px 24.8px -0.9px hsl(var(--shadow-color) / 0.63);
 }
+
 html {
     box-sizing: border-box;
 }   

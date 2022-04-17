@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Rock, Paper, Scissors</title>
+        <link rel="stylesheet" href="index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/26456b3d35.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Let's play...<br><span class="accent-color">Rock, Paper, Scissors!</span></h1>
+            <p class="instructions">Click "New Game" to start a new game.</p>
+        </header>
+        <main>
+            <div class="game-container">
+                <div class="game-symbols-container">
+                    <div class="player-section">
+                        <p class="section-name">Player's choice</p>
+                        <div class="player-symbol">?</div>
+                    </div>
+                    <div class="computer-section">
+                        <p class="section-name">Computer's choice</p>
+                        <div class="computer-symbol">?</div>
+                    </div>
+                </div>
+                <p id="outcome-el"></p>
+                <div class="button-container">
+                    <button type="button" id="new-game-btn">New Game</button>
+                    <br>
+                    <button type="button" class="game-btn" id="rock-btn" style="display: none">Rock</button>
+                    <button type="button" class="game-btn" id="paper-btn" style="display: none">Paper</button>
+                    <button type="button" class="game-btn" id="scissors-btn" style="display: none">Scissors</button>
+                </div>
+                <div class="score-container">
+                    <p class="player-score-el">Player: 0</p>
+                    <p class="computer-score-el">Computer: 0</p>
+                </div>
+            </div>
+        </main>
+        <script src="index.js"></script>
+    </body>
+</html>
