@@ -168,6 +168,7 @@ input {
     width: 235px;
     margin: 0 auto;
     background-color: #333;
+    position: relative;
 }
 
 .btn {
@@ -196,4 +197,75 @@ input {
     margin-top: 15px;
     padding: 10px 25px;
     display: none;
+}
+
+/* Line animation styles */
+.gameGrid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 235px;
+    height: 229px;
+    align-items: center;
+    justify-items: center;
+}
+
+.line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 4px;
+    margin-top: -2px;
+    margin-left: -100px;
+    background-color: #333;
+}
+
+.opacityFull {
+    opacity: 100%;
+}
+
+.scaleFull {
+    transform: scaleX(100%)
+}
+
+.r45 {
+    transform: rotate(45deg);
+}
+
+.r90 {
+    transform: rotate(90deg);
+    transform-origin: 50% 50%;
+    transition: none;
+}
+
+.r135 {
+    transform: rotate(135deg);
+    transform-origin: 50% 50%;
+    transition: none;
+}
+
+.r180 {
+    transform: rotate(180deg);
+    transform-origin: 50% 50%;
+    transition: none;
+}
+
+.extended {
+    width: 240px;
+    margin-left: -120px;
+}
+
+.animateLine45 {
+    animation: animateLine45 0.5s linear;
+}
+
+@keyframes animateLine45 {
+    from {
+        transform: rotate(45deg) scaleX(0);
+    }
+
+    to {
+        transform: rotate(45deg) scaleX(100%);
+    }
 }

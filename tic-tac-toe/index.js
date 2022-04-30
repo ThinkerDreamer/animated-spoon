@@ -318,3 +318,16 @@ function resetGame() {
 }
 
 disableBoard(); // When the page loads, the board is disabled
+
+
+// Animate Stuff
+const testBtn = document.getElementById("testBtn");
+testBtn.addEventListener("click", animateLine);
+
+function animateLine() {
+  const lines = document.querySelectorAll(".line");
+  console.log("num lines:", lines.length)
+  lines.forEach((line) => {
+    line.classList.add(`animateLine45`);
+  })
+}
